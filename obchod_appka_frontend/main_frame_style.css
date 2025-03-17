@@ -1,0 +1,45 @@
+
+
+
+.nahlad-container{
+    display: block;
+    align-items: center;
+    padding: 10px 100px;
+    
+}
+
+.text_nadpis{
+    font-size: 22px;  
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.shoe_store-obrazok{
+    max-width: 100%;  
+    height: auto;
+    margin: 20px auto;
+}
+
+.text-format{
+    font-size: 16px;  
+    font-family: 'Montserrat', sans-serif;
+}
+
+.moj-obrazok {
+    width: 70%;  /* alebo 100vw */
+    height: auto;  /* zachová pomer strán */
+    display: block; /* odstráni medzeru pod obrázkom */
+}
+
+.obrazok-muz_topanky{
+    width: 32%;  /* alebo 100vw */
+    height: auto;  /* zachová pomer strán */
+    display: block; 
+}
+
+.muz_obrazky-container{
+    display: flex;
+    align-items: center;
+    padding: 10px 100px;
+    width: auto;
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SneakerHeaders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Style files -->
+    <link rel="stylesheet" href="header_style.css">
+    <link rel="stylesheet" href="main_frame_style.css">
+  </head>
+  <body>
+    
+    <!-- Kontajner s nadpisom a vyhľadávacím panelom -->
+    <header>
+      <a href="index.html" class="shopHeader-link">
+        <div class="shopHeader">SneakerHeaders</div>
+      </a>
+
+      <!-- Vyhľadávací panel -->
+      <div class="search-container">
+        <input type="text" placeholder="Vyhľadaj produkt...">
+        <button type="submit">Hľadať</button>
+      </div>
+
+      <!-- Profil a kosik -->
+      <div class="header-right">
+        <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+        <button class="profile-btn" onclick="window.location.href='login.html';" >Prihlásenie</button>
+      </div>
+
+    </header>
+
+    <!-- Kategórie (Ženy, Muži, Deti) -->
+    <div class="okienka">
+      <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('zeny')">Ženy</button>
+      <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('muzi')">Muži</button>
+      <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('deti')">Deti</button>
+    </div>
+    <hr class="divider">
+    <div class="okienka">
+      <button class="btn-sm category-btn">Obuv</button>
+      <button class="btn-sm category-btn">Tričká</button>
+      <button class="btn-sm category-btn">Nohavice</button>
+      <button class="btn-sm category-btn">Bundy</button>
+      <button class="btn-sm category-btn">Vetrovky</button>
+      <button class="btn-sm category-btn">Doplnky</button>
+    </div>
+    <!--------------- Koniec headeru --------------->
+
+    <div class="nahlad-container">
+      <h1 class="text_nadpis">Vitajte v SneakerHeaders !</h1>
+      <img src="pictures/shoe_store.jpg" alt="shoe store" class="shoe_store-obrazok">
+      <h2 class="text-format">Tvojom oblubenom obchode s topankami.Najdes tu takisto aj oblecenie a doplnky aby ladili s tvojim stylom.
+      Tak nevahaj a prezri si kategorie.</h2>  
+    </div>
+    
+    <script src="funkcie.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>

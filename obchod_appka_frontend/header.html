@@ -1,0 +1,34 @@
+<!-- Kontajner s nadpisom a vyhľadávacím panelom -->
+<header>
+    <div class="shopHeader">SneakerHeaders</div>
+    
+    <!-- Vyhľadávací panel -->
+    <div class="search-container">
+      <input type="text" placeholder="Vyhľadaj produkt...">
+      <button type="submit">Hľadať</button>
+    </div>
+
+    <!-- Profil a kosik -->
+    <div class="header-right">
+      <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+      <button class="profile-btn" onclick="window.location.href='login.html';" >Prihlásenie</button>
+    </div>
+  
+  </header>
+
+  <!-- Kategórie (Ženy, Muži, Deti) -->
+  <div class="okienka">
+    <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('zeny')">Ženy</button>
+    <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('muzi')">Muži</button>
+    <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('deti')">Deti</button>
+  </div>
+  <hr class="divider">
+  <div class="okienka">
+    <button class="btn-sm category-btn">Obuv</button>
+    <button class="btn-sm category-btn">Tričká</button>
+    <button class="btn-sm category-btn">Nohavice</button>
+    <button class="btn-sm category-btn">Bundy</button>
+    <button class="btn-sm category-btn">Vetrovky</button>
+    <button class="btn-sm category-btn">Doplnky</button>
+  </div>
+  <!--------------- Koniec headeru --------------->
