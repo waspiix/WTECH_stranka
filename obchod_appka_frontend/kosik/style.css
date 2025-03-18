@@ -1,0 +1,50 @@
+.circle_no {
+  width: 80px;
+  height: 80px;
+  background-color: lightgray;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle_ok {
+  width: 80px;
+  height: 80px;
+  background-color: lightgreen;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sipka {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+.table-resposive {
+  border-radius: 20px;
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.form-select {
+  width: auto;
+}
+
+.input-group-text {
+  display: flex;
+  justify-content: center;
+}
+
+.kosik_pozadie {
+  background-color: #fafafa;
+  padding: 15px;
+  border-radius: 25px;
+}
+
+.progress_container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
