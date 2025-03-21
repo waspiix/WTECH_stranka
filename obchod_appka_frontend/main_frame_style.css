@@ -43,3 +43,7 @@
     padding: 10px 100px;
     width: auto;
 }
+
+.container-fluid{
+    padding: 100px;
+}
