@@ -9,7 +9,7 @@
 }
 
 .text_nadpis{
-    font-size: 22px;  
+    font-size: 24px;  
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
@@ -31,10 +31,32 @@
     display: block; /* odstráni medzeru pod obrázkom */
 }
 
+.obrazok-show-produkt {
+    width: 45%;
+    height: auto;
+}
+
+.popis-produktu-nahlad {
+    flex: 1;
+    padding: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    
+}
+
 .obrazok-muz_topanky{
     width: 31%;  /* alebo 100vw */
     height: auto;  /* zachová pomer strán */
     display: block; 
+}
+
+.show_product-container {
+    display: flex; 
+    justify-content: flex-start; 
+    gap: 50px; 
+    padding: 10px 100px;
+    width: auto;
 }
 
 .pohlavie_obrazky-container{

@@ -1,33 +1,33 @@
 <!-- Kontajner s nadpisom a vyhľadávacím panelom -->
-<header>
-    <div class="shopHeader">SneakerHeaders</div>
+    <header>
+      <div class="shopHeader">SneakerHeaders</div>
+      
+      <!-- Vyhľadávací panel -->
+      <div class="search-container">
+        <input type="text" placeholder="Vyhľadaj produkt...">
+        <button type="submit">Hľadať</button>
+      </div>
+
+      <!-- Profil a kosik -->
+      <div class="header-right">
+        <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+        <button class="profile-btn" onclick="window.location.href='login.html';" >Prihlásenie</button>
+      </div>
     
-    <!-- Vyhľadávací panel -->
-    <div class="search-container">
-      <input type="text" placeholder="Vyhľadaj produkt...">
-      <button type="submit">Hľadať</button>
-    </div>
+    </header>
 
-    <!-- Profil a kosik -->
-    <div class="header-right">
-      <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
-      <button class="profile-btn" onclick="window.location.href='login.html';" >Prihlásenie</button>
+    <!-- Kategórie (Ženy, Muži, Deti) -->
+    <div class="okienka">
+      <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('zeny')">Ženy</button>
+      <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('muzi')">Muži</button>
+      <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('deti')">Deti</button>
     </div>
-  
-  </header>
-
-  <!-- Kategórie (Ženy, Muži, Deti) -->
-  <div class="okienka">
-    <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('zeny')">Ženy</button>
-    <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('muzi')">Muži</button>
-    <button class="btn-sm pohlavie-btn" onclick="setGenderCategory('deti')">Deti</button>
-  </div>
-  <hr class="divider">
-  <div class="okienka">
-    <button class="btn-sm category-btn">Tenisky</button>
-    <button class="btn-sm category-btn">Formálna</button>
-    <button class="btn-sm category-btn">Outdoor</button>
-    <button class="btn-sm category-btn">Čižmy</button>
-    <button class="btn-sm category-btn">Letná</button>
-  </div>
-  <!--------------- Koniec headeru --------------->
+    <hr class="divider">
+    <div class="okienka">
+      <button class="btn-sm category-btn">Tenisky</button>
+      <button class="btn-sm category-btn">Formálna</button>
+      <button class="btn-sm category-btn">Outdoor</button>
+      <button class="btn-sm category-btn">Čižmy</button>
+      <button class="btn-sm category-btn">Letná</button>
+    </div>
+    <!--------------- Koniec headeru --------------->
