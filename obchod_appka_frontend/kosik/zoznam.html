@@ -66,9 +66,11 @@
           <img src="../svg/prava_sipka.svg" alt="sipka" height="40" />
         </div>
         <div class="col">
-          <div class="circle_no">
-            <img src="../svg/van.svg" alt="Adresa dorucenia" width="50" />
-          </div>
+          <a href="adresa.html">
+            <div class="circle_no">
+              <img src="../svg/van.svg" alt="Adresa dorucenia" width="50" />
+            </div>
+          </a>
         </div>
         <div class="col sipka">
           <img src="../svg/prava_sipka.svg" alt="sipka" height="40" />
@@ -103,32 +105,16 @@
                     width="100%"
                   />
                   <div class="input-group flex-nowrap">
-                    <button onclick="up()" class="btn btn-outline-dark">
+                    <button onclick="up(1)" class="btn btn-outline-dark">
                       +
                     </button>
-                    <span id="pocet_ks" class="input-group-text form-control"
+                    <span id="pocet_ks_1" class="input-group-text form-control"
                       >1</span
                     >
-                    <button
-                      onclick="down()"
-                      id="zober"
-                      class="btn btn-outline-dark"
-                    >
+                    <button onclick="down(1)" class="btn btn-outline-dark">
                       -
                     </button>
                   </div>
-                  <script>
-                    let span = document.getElementById("pocet_ks");
-                    function up() {
-                      span.textContent = parseInt(span.textContent) + 1;
-                    }
-                    function down() {
-                      span.textContent = parseInt(span.textContent) - 1;
-                      if (span.textContent == 0) {
-                        close_span();
-                      }
-                    }
-                  </script>
                 </th>
                 <th scope="col" class="align-middle">
                   <h3>Štýlové tenisky</h3>
@@ -151,19 +137,13 @@
                       <div class="col">
                         <button
                           type="remove"
-                          onclick="close_span()"
+                          onclick="close_span(1)"
                           class="btn btn-danger"
                         >
                           X
                         </button>
                       </div>
                       <div class="col"><h2>49,99€</h2></div>
-                      <script>
-                        var x = document.getElementById("item_1");
-                        function close_span() {
-                          x.style.display = "none";
-                        }
-                      </script>
                     </div>
                   </div>
                 </th>
@@ -187,5 +167,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
