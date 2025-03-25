@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SneakerHeaders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Style files -->
+    <link rel="stylesheet" href="../header_style.css">
+    <link rel="stylesheet" href="../main_frame_style.css">
+  </head>
+  <body>
+    <!-- Kontajner s nadpisom a vyhľadávacím panelom -->
+    <header>
+        <a href="index.html" class="shopHeader-link">
+          <div class="shopHeader">SneakerHeaders</div>
+        </a>
+        
+        <div class="search-container">
+            <h1 class="text_nadpis">Admin profile</h1>
+        </div>
+
+        <div class="header-right">
+        <button class="profile-btn">Admin prihlasený</button>
+        </div>
+
+    </header>
+    <div class="okienka">
+        <button class="btn-sm pohlavie-btn">Pridanie produktu</button>
+        <button class="btn-sm pohlavie-btn">Odobranie produktu</button>
+    </div>
+    <hr class="divider">
+    <h1 class="container-margin text_nadpis">Pridanie produktu</h1>
+    <div>
+        <input type="text" class="input-style-admin" style="margin: 0px 100px" placeholder="Názov produktu">
+    </div>
+    <div>
+        <input type="text" class="input-style-admin-cena" style="margin: 10px 100px" placeholder="Cena (eura.centy)">
+    </div>
+
+    <div class="mt-3 d-flex gap-3" style="margin: 100px">
+    <!-- Dropdown pre Pohlavie -->
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownPohlavie" data-bs-toggle="dropdown" aria-expanded="false">
+                Vyberte pohlavie
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownPohlavie">
+                <li><a class="dropdown-item" href="#">Muži</a></li>
+                <li><a class="dropdown-item" href="#">Ženy</a></li>
+                <li><a class="dropdown-item" href="#">Deti</a></li>
+            </ul>
+        </div>
+
+        <!-- Dropdown pre Kategóriu -->
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownKategoria" data-bs-toggle="dropdown" aria-expanded="false">
+                Vyberte kategóriu
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownKategoria">
+                <li><a class="dropdown-item" href="#">Tenisky</a></li>
+                <li><a class="dropdown-item" href="#">Formálne</a></li>
+                <li><a class="dropdown-item" href="#">Outdoor</a></li>
+                <li><a class="dropdown-item" href="#">Čizmy</a></li>
+                <li><a class="dropdown-item" href="#">Letná</a></li>
+            </ul>
+        </div>
+    
+
+        <div class="container mt-3">
+            <h5>Vyberte veľkosť:</h5>
+            <div class="d-flex gap-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="39" id="size39">
+                    <label class="form-check-label" for="size39">39</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="40" id="size40">
+                    <label class="form-check-label" for="size40">40</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="41" id="size41">
+                    <label class="form-check-label" for="size41">41</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="42" id="size42">
+                    <label class="form-check-label" for="size42">42</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="43" id="size43">
+                    <label class="form-check-label" for="size43">43</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="44" id="size44">
+                    <label class="form-check-label" for="size44">44</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <input type="text" class="input-style-admin" style="margin: 0px 100px; height:80px" placeholder="Popis produktu">
+    </div>
+    <div class="container mt-4">
+        <h5 class="mb-3">Nahraj obrázok</h5>
+        <div class="border rounded p-4 text-center bg-light " style="width:50%" id="upload-area">
+            <p class="text-muted">Sem pretiahni obrázok alebo klikni na tlačidlo</p>
+            <input type="file" id="file-input" class="d-none">
+            <button class="btn btn-primary" onclick="document.getElementById('file-input').click();">
+                Vyber súbor
+            </button>
+            <div class="mt-3">
+                <img id="preview" src="" alt="" class="img-fluid d-none rounded shadow" style="max-height: 200px;">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+  </body>

@@ -33,7 +33,7 @@
 
 .obrazok-show-produkt {
     width: 45%;
-    height: auto;
+    height: 45%;
 }
 
 .popis-produktu-nahlad {
@@ -68,4 +68,37 @@
 
 .container-fluid{
     padding: 100px;
+}
+
+.container-margin{
+    margin: 40px 100px;
+}
+
+.back-button {
+    top: 10px;
+    left: 10px;
+    margin: 0px 100px;
+    background-color: white;
+    color: black;
+    padding: 7px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 12px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.back-button:hover {
+    background-color: #99a1a7;
+}
+
+.input-style-admin {
+    width: 50%;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.input-style-admin-cena {
+    width: 10%;
+    border-radius: 5px;
+    height: 40px;
 }
