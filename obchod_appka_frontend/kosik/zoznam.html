@@ -55,7 +55,8 @@
         </button>
       </div>
     </header>
-    <div class="container text-center progress_container">
+    <!-- progress nakupu -->
+    <div class="container text-center my-3">
       <div class="row">
         <div class="col">
           <div class="circle_ok">
@@ -90,80 +91,58 @@
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <div class="kosik_pozadie">
-        <div class="table-resposive">
-          <table class="table">
-            <tbody>
-              <tr id="item_1">
-                <th scope="col" class="align-middle w-25">
-                  <img
-                    src="../svg/topanky.jpg"
-                    alt="topanky"
-                    class="rounded"
-                    width="100%"
-                  />
-                  <div class="input-group flex-nowrap">
-                    <button onclick="up(1)" class="btn btn-outline-dark">
-                      +
-                    </button>
-                    <span id="pocet_ks_1" class="input-group-text form-control"
-                      >1</span
-                    >
-                    <button onclick="down(1)" class="btn btn-outline-dark">
-                      -
-                    </button>
-                  </div>
-                </th>
-                <th scope="col" class="align-middle">
-                  <h3>Štýlové tenisky</h3>
-                  <label for="" class="form-label">Velkost</label>
-                  <select
-                    class="form-select"
-                    name="velkost topanok"
-                    id="velkost_1"
-                  >
-                    <option value="">38</option>
-                    <option value="">39</option>
-                    <option value="" selected>40</option>
-                    <option value="">41</option>
-                    <option value="">42</option>
-                  </select>
-                </th>
-                <th scope="col">
-                  <div class="container text-end">
-                    <div class="row">
-                      <div class="col">
-                        <button
-                          type="remove"
-                          onclick="close_span(1)"
-                          class="btn btn-danger"
-                        >
-                          X
-                        </button>
-                      </div>
-                      <div class="col"><h2>49,99€</h2></div>
-                    </div>
-                  </div>
-                </th>
-              </tr>
-            </tbody>
-          </table>
+    <!-- zoznam produktov v kosiku -->
+    <div class="container bg-light p-3 rounded-5">
+      <div class="container bg-white p-2 my-1 rounded-4">
+        <div class="row p-2">
+          <div class="col-3">
+            <img
+              src="../pictures/muzi/Tenisky/nike_airforce.jpg"
+              alt="topanky"
+              class="rounded-4 mb-2"
+              width="100%"
+            />
+            <div class="input-group flex-nowrap">
+              <button onclick="up(1)" class="btn btn-outline-dark">+</button>
+              <span id="pocet_ks_1" class="input-group-text form-control"
+                >1</span
+              >
+              <button onclick="down(1)" class="btn btn-outline-dark">-</button>
+            </div>
+          </div>
+          <div class="col-5">
+            <h2>Nike Air Force</h2>
+            <label for="" class="form-label">Velkost</label>
+            <select class="form-select" name="velkost topanok" id="velkost_1">
+              <option value="">38</option>
+              <option value="">39</option>
+              <option value="" selected>40</option>
+              <option value="">41</option>
+              <option value="">42</option>
+            </select>
+          </div>
+          <div class="col-2">
+            <h2 class="position-relative top-50">99€</h2>
+          </div>
+          <div class="col-2 text-end">
+            <button
+              type="remove"
+              onclick="close_span(1)"
+              class="btn btn-danger"
+            >
+              X
+            </button>
+          </div>
         </div>
       </div>
-      <div class="container px-4">
-        <div class="row gx-5 text-start">
-          <div class="col">
-            <div class="p-3">
-              <h3>Spolu: <b>1234€</b></h3>
-            </div>
-          </div>
-          <div class="col">
-            <div class="p-3 text-end">
-              <button type="button" class="btn btn-primary">Pokračovať</button>
-            </div>
-          </div>
+    </div>
+    <div class="container px-4">
+      <div class="row gx-5">
+        <div class="col p-3">
+          <h3>Spolu: <b>199,99€</b></h3>
+        </div>
+        <div class="col p-3 text-end">
+          <button type="button" class="btn btn-primary">Pokračovať</button>
         </div>
       </div>
     </div>
