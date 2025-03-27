@@ -93,9 +93,9 @@
     </div>
     <!-- zoznam produktov v kosiku -->
     <div class="container bg-light p-3 rounded-5">
-      <div class="container bg-white p-2 my-1 rounded-4">
-        <div class="row p-2">
-          <div class="col-3">
+      <div class="bg-white p-2 rounded-4">
+        <div class="row m-1 p-2 border-bottom" id="item_1">
+          <div class="col-12 col-sm-3">
             <img
               src="../pictures/muzi/Tenisky/nike_airforce.jpg"
               alt="topanky"
@@ -110,21 +110,25 @@
               <button onclick="down(1)" class="btn btn-outline-dark">-</button>
             </div>
           </div>
-          <div class="col-5">
-            <h2>Nike Air Force</h2>
-            <label for="" class="form-label">Velkost</label>
-            <select class="form-select" name="velkost topanok" id="velkost_1">
-              <option value="">38</option>
-              <option value="">39</option>
-              <option value="" selected>40</option>
-              <option value="">41</option>
-              <option value="">42</option>
-            </select>
+          <div class="col-6 col-sm-6 d-flex align-items-center">
+            <div>
+              <h2>Nike Air Force</h2>
+              <label for="" class="form-label">Velkosť</label>
+              <select class="form-select" name="velkost topanok" id="velkost_1">
+                <option value="">38</option>
+                <option value="">39</option>
+                <option value="" selected>40</option>
+                <option value="">41</option>
+                <option value="">42</option>
+              </select>
+            </div>
           </div>
-          <div class="col-2">
-            <h2 class="position-relative top-50">99€</h2>
+          <div class="col-3 col-sm-2 d-flex align-items-center">
+            <h2>99,00€</h2>
           </div>
-          <div class="col-2 text-end">
+          <div
+            class="col-3 col-sm-1 d-flex justify-content-end align-items-end align-items-sm-start"
+          >
             <button
               type="remove"
               onclick="close_span(1)"
