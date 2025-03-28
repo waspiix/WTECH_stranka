@@ -23,12 +23,3 @@
 .sipka {
   min-width: 0px;
 }
-
-.form-select {
-  width: auto;
-}
-
-.input-group-text {
-  display: flex;
-  justify-content: center;
-}
