@@ -45,34 +45,53 @@
         <button class="btn-sm category-btn">Letná</button>
       </div>
       <!--------------- Koniec headeru --------------->
-      <button class="back-button">Späť</button>
-      <div class="show_product-container">
-        <img src="pictures/muzi/Tenisky/nike_dunk_darkRed.jpg" alt="nike dunk red" class = "obrazok-show-produkt">
-        <div class="popis-produktu-nahlad">
-            <div class="text_nadpis">Nike Dunk</div>
-            99 € <br><br>
-            Velkosti
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    Vyberte veľkosť
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">38</a></li>
-                    <li><a class="dropdown-item" href="#">39</a></li>
-                    <li><a class="dropdown-item" href="#">40</a></li>
-                    <li><a class="dropdown-item" href="#">41</a></li>
-                    <li><a class="dropdown-item" href="#">42</a></li>
-                    <li><a class="dropdown-item" href="#">43</a></li>
-                    <li><a class="dropdown-item" href="#">44</a></li>
-                </ul><br><br>
-                <button>Pridajte do košíka</button>
-                <div class="d-flex align-items-center">
+      <button class="text-format back-button">< Späť</button>
+      <div class="container mt-4">
+        <div class="row g-4 show_product-container">
+            <!-- Prvý obrázok -->
+            <div class="col-12 col-sm-12 col-md-4">
+                <img src="pictures/muzi/Tenisky/nike_dunk_darkRed.jpg" alt="nike dunk red" class="img-fluid obrazok-show-produkt">
+            </div>
+            <!-- Druhý obrázok -->
+            <div class="col-12 col-sm-12 col-md-4">
+                <img src="pictures/muzi/Tenisky/nike_dunk_darkRed_par.jpg" alt="nike dunk red par" class="img-fluid obrazok-show-produkt">
+            </div>
+            <!-- Popis produktu -->
+            <div class="col-12 col-md-6 popis-produktu-nahlad d-flex flex-column">
+                <h2 class="text_nadpis">Nike Dunk</h2>
+                <h4>99 €</h4>
+    
+                <!-- Dropdown pre veľkosť -->
+                <div class="dropdown mt-3">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        Vyberte veľkosť
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#">38</a></li>
+                        <li><a class="dropdown-item" href="#">39</a></li>
+                        <li><a class="dropdown-item" href="#">40</a></li>
+                        <li><a class="dropdown-item" href="#">41</a></li>
+                        <li><a class="dropdown-item" href="#">42</a></li>
+                        <li><a class="dropdown-item" href="#">43</a></li>
+                        <li><a class="dropdown-item" href="#">44</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Počítadlo množstva -->
+                <div class="d-flex align-items-center mt-3">
                     <button class="btn btn-outline-secondary" id="decrease">-</button>
-                    <input type="number" id="quantity" value="1" min="1" class="form-control text-center" style="width: 50px;">
+                    <input type="number" id="quantity" value="1" min="1" class="form-control text-center mx-2" style="width: 50px;">
                     <button class="btn btn-outline-secondary" id="increase">+</button>
                 </div>
+    
+                <!-- Tlačidlo pridania do košíka -->
+                <button class="btn btn-success mt-3">Pridať do košíka</button>
+    
+                <!-- Popis -->
+                <p class="mt-4 text-format">Nike Dunk sú legendárne tenisky, ktoré spájajú nadčasový dizajn, pohodlie a mestský štýl. Pôvodne navrhnuté pre basketbal, dnes sú neoddeliteľnou súčasťou streetwear kultúry. Vyznačujú sa kvalitnými materiálmi, odolnou gumovou podrážkou a ikonickým Swoosh logom.</p>
             </div>
         </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
+</html>

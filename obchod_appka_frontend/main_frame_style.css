@@ -1,6 +1,5 @@
 
 
-
 .nahlad-container{
     display: block;
     align-items: center;
@@ -25,24 +24,25 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.ikona{
+    width: 30px;
+    height: 30px;
+}
+
 .moj-obrazok {
     width: 70%;  /* alebo 100vw */
     height: auto;  /* zachová pomer strán */
     display: block; /* odstráni medzeru pod obrázkom */
 }
 
-.obrazok-show-produkt {
-    width: 45%;
-    height: 45%;
-}
+
 
 .popis-produktu-nahlad {
     flex: 1;
-    padding: 50px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 20px;
-    
+    padding: 0px 30px;
 }
 
 .obrazok-muz_topanky{
@@ -53,10 +53,9 @@
 
 .show_product-container {
     display: flex; 
-    justify-content: flex-start; 
-    gap: 50px; 
-    padding: 10px 100px;
+    justify-content: flex-start;  
     width: auto;
+
 }
 
 .pohlavie_obrazky-container{
@@ -66,8 +65,8 @@
     width: auto;
 }
 
-.container-fluid{
-    padding: 100px;
+.container-produkt{
+    padding: 0px 100px;
 }
 
 .container-margin{

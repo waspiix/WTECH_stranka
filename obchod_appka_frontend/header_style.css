@@ -12,8 +12,7 @@ header {
     background-color: #f0f0f0;
     justify-content: space-between;
     position: sticky;
-    z-index: 1000;
-    top: 0;
+    flex-wrap: wrap;
 }
 
 .shopHeader {
@@ -37,6 +36,25 @@ header {
     width: 40%;  
     display: flex;
     align-items: center;
+}
+
+#mobile-search-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #search-input, #search-btn {
+        display: none;
+    }
+    #mobile-search-btn {
+        display: block;
+        border: 3px solid black;
+        border-radius: 15px;
+    }
 }
 
 .search-container input {
@@ -111,6 +129,7 @@ header {
     align-items: center;
     padding: 20px 100px;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 /*ZENY, MUZI, DETI*/

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Funkcia na nastavenie kategórie podľa pohlavia
+// DOCASTNA Funkcia na nastavenie kategórie podľa pohlavia
 function setGenderCategory(category) {
     localStorage.setItem('selectedGenderCategory', category);
     if (category === 'zeny') {
