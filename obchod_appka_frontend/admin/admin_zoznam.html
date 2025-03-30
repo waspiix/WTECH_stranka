@@ -44,6 +44,27 @@
       <button class="btn-sm pohlavie-btn">Pridanie produktu</button>
     </div>
 
+    <div class="input-group p-3">
+      <input type="text" class="form-control" placeholder="Hladať..." />
+      <select class="form-select" id="pohlavie_sel">
+        <!-- vsetky -->
+        <option selected>Pohlavie</option>
+        <option value="1">Muži</option>
+        <option value="2">Ženy</option>
+        <option value="3">Deti</option>
+      </select>
+      <select class="form-select" id="druh_sel">
+        <!-- vsetky -->
+        <option selected>Druh</option>
+        <option value="1">Tenisky</option>
+        <option value="2">Formálne</option>
+        <option value="3">Outdoor</option>
+        <option value="4">Čizmy</option>
+        <option value="5">Letná</option>
+      </select>
+      <button class="btn btn-primary">Hladať</button>
+    </div>
+
     <table class="table">
       <thead>
         <tr>
@@ -51,8 +72,9 @@
           <th scope="col">Značka</th>
           <th scope="col">Názov</th>
           <th scope="col">Druh</th>
+          <th scope="col">Pohlavie</th>
+          <th scope="col">Velkosť</th>
           <th scope="col">Cena</th>
-          <th scope="col">Velkost</th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -62,8 +84,9 @@
           <td>Nike</td>
           <td>Air Force</td>
           <td>Tenisky</td>
-          <td>99,00€</td>
+          <td>Muži</td>
           <td>36 - 43</td>
+          <td>99,00€</td>
           <td>
             <div class="btn-group">
               <button type="button" class="btn btn-primary">Edit</button>
@@ -76,8 +99,9 @@
           <td>New Balance</td>
           <td>1906</td>
           <td>Tenisky</td>
-          <td>99,00€</td>
+          <td>Muži</td>
           <td>35 - 42</td>
+          <td>99,00€</td>
           <td>
             <div class="btn-group">
               <button type="button" class="btn btn-primary">Edit</button>

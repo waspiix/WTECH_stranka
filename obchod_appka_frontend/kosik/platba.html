@@ -76,9 +76,11 @@
       <div class="sipka">
         <img src="../svg/prava_sipka.svg" alt="sipka" height="40" />
       </div>
-      <div class="circle_no">
-        <img src="../svg/check.svg" alt="Done" width="50" />
-      </div>
+      <a href="done.html">
+        <div class="circle_no">
+          <img src="../svg/check.svg" alt="Done" width="50" />
+        </div>
+      </a>
     </div>
 
     <div class="container bg-light p-3 rounded-5">
@@ -94,9 +96,15 @@
                   class="w-75 rounded-2"
                 />
               </div>
-              <div class="col-12 col-sm-3"><h4>Nike Air Force</h4></div>
-              <div class="col-6 col-sm-3"><h4>40</h4></div>
-              <div class="col-6 col-sm-3"><h4>99,00€</h4></div>
+              <div class="col-12 col-sm-3">
+                <div class="produkt_suhrn">Nike Air Force</div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="produkt_suhrn">40</div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="produkt_suhrn">99,00€</div>
+              </div>
             </div>
           </li>
           <li class="list-group-item">
@@ -108,39 +116,49 @@
                   class="w-75 rounded-2"
                 />
               </div>
-              <div class="col-12 col-sm-3"><h4>Nike Air Force</h4></div>
-              <div class="col-6 col-sm-3"><h4>42</h4></div>
-              <div class="col-6 col-sm-3"><h4>2 x 99,00€</h4></div>
+              <div class="col-12 col-sm-3">
+                <div class="produkt_suhrn">Nike Air Force</div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="produkt_suhrn">42</div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <div class="produkt_suhrn">99,00€</div>
+              </div>
             </div>
           </li>
           <li class="list-group-item bg-light">
             <div class="row p-2">
-              <div class="col"><h3>Spolu:</h3></div>
-              <div class="col text-end"><h3>198 €</h3></div>
+              <div class="col"><div class="cena">Spolu:</div></div>
+              <div class="col text-end">
+                <div class="cena"><b>198 €</b></div>
+              </div>
             </div>
           </li>
         </ul>
         <div class="my-3">
           <!-- toto upravit este -->
           <h2>Dodacie údaje:</h2>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col">Fero</div>
-                <div class="col">Mrkvicka</div>
-              </div>
-            </li>
-            <li class="list-group-item">Dlha ulica 168/2</li>
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col">Velmi dlhe mesto</div>
-                <div class="col">13456</div>
-              </div>
-            </li>
-          </ul>
+          <address>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col">Fero</div>
+                  <div class="col">Mrkvicka</div>
+                </div>
+              </li>
+              <li class="list-group-item">Dlha ulica 168/2</li>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col">Velmi dlhe mesto</div>
+                  <div class="col">13456</div>
+                </div>
+              </li>
+            </ul>
+          </address>
         </div>
 
-        <h2>Zvolte spôsob platby:</h2>
+        <h2>Spôsob platby:</h2>
         <div class="w-100 btn-group" role="group">
           <input
             id="hotovost_l"

@@ -1,87 +1,91 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>13</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>637</y>
-      <w>208</w>
-      <h>104</h>
+      <x>130</x>
+      <y>670</y>
+      <w>160</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>znacka
 --
-id: PK
-name: text
+id: int PK
+name: varchar(32)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>754</y>
-      <w>208</w>
-      <h>104</h>
+      <x>130</x>
+      <y>760</y>
+      <w>160</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>farba
 --
-id: PK
-name: text
+id: int PK
+name: varchar(32)
 hex: int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1274</x>
-      <y>624</y>
-      <w>221</w>
-      <h>182</h>
+      <x>1110</x>
+      <y>660</y>
+      <w>230</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>zakaznik
 --
-id: PK
-email: text
-passwd: hash
-meno: text
-priezvisko: text
-adresa...
+id: int PK
+email: varchar(64)
+passwd_hash: varchar(256)
+meno: varchar(64)
+priezvisko: varchar(64)
+ulica: varchar(256)
+mesto: varchar(32)
+psc: int
+krajna: varchar(32)
 admin: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>520</y>
-      <w>208</w>
-      <h>104</h>
+      <x>130</x>
+      <y>580</y>
+      <w>160</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>druh
 --
-id: PK
-name: text
+id: int PK
+name: varchar(32)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>624</y>
-      <w>221</w>
-      <h>286</h>
+      <x>530</x>
+      <y>660</y>
+      <w>170</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>produkt_topanky
 --
-id: PK
-name: text
-znacka_id: FK
-farba_prim_id: FK
-farba_sek_id: FK
-dhruh_id: FK
-pohlavie_id: FK
+id: int PK
+name: varchar(32)
+popis: varchar(512)
+znacka_id: int FK
+farba_prim_id: int FK
+farba_sek_id: int FK
+dhruh_id: int FK
+pohlavie_id: int FK
 pocet_obrazkov: int
 velkost_od: int
 velkost_do: int
@@ -91,15 +95,15 @@ cena: int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>884</x>
-      <y>624</y>
-      <w>221</w>
-      <h>182</h>
+      <x>810</x>
+      <y>660</y>
+      <w>170</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>zakaznik_produkt (kosik)
 --
-zakaznik_id: FK
-produkt_id: FK
+zakaznik_id: int FK
+produkt_id: int FK
 pocet: int
 velkost: int</panel_attributes>
     <additional_attributes/>
@@ -107,10 +111,10 @@ velkost: int</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1092</x>
-      <y>689</y>
-      <w>208</w>
-      <h>65</h>
+      <x>970</x>
+      <y>710</y>
+      <w>160</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>m1=0..*
 m2=1
@@ -120,10 +124,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>689</y>
-      <w>182</w>
-      <h>65</h>
+      <x>690</x>
+      <y>710</y>
+      <w>140</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=0..*
@@ -133,10 +137,10 @@ m2=0..*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
-      <y>559</y>
-      <w>351</w>
-      <h>169</h>
+      <x>280</x>
+      <y>610</y>
+      <w>270</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=1
@@ -146,10 +150,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
-      <y>676</y>
-      <w>351</w>
-      <h>91</h>
+      <x>280</x>
+      <y>700</y>
+      <w>270</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=1
@@ -159,10 +163,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
-      <y>741</y>
-      <w>351</w>
-      <h>104</h>
+      <x>280</x>
+      <y>750</y>
+      <w>270</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=1
@@ -172,25 +176,25 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>871</y>
-      <w>208</w>
-      <h>104</h>
+      <x>130</x>
+      <y>850</y>
+      <w>160</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>pohlavie
 --
-id: PK
-name: text
+id: int PK
+name: varchar(16)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>195</x>
+      <x>280</x>
       <y>780</y>
-      <w>351</w>
-      <h>182</h>
+      <w>270</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=1
@@ -200,15 +204,15 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>884</x>
-      <y>208</y>
-      <w>221</w>
-      <h>247</h>
+      <x>810</x>
+      <y>340</y>
+      <w>170</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>polozka_objednavky
 --
-objednavka_id: FK
-produkt_id: FK
+objednavka_id: int FK
+produkt_id: int FK
 pocet: int
 velkost: int</panel_attributes>
     <additional_attributes/>
@@ -216,32 +220,33 @@ velkost: int</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1274</x>
-      <y>208</y>
-      <w>403</w>
-      <h>312</h>
+      <x>1110</x>
+      <y>340</y>
+      <w>310</w>
+      <h>240</h>
     </coordinates>
     <panel_attributes>objednavka
 --
-id: PK
-zakaznik_id: FK
+id: int PK
+zakaznik_id: int FK
 cena: int
-datum_vytvorenia: date:time
-adresa_dorucenia: text
-mesto: text
+datum_vytvorenia: timestamp
+adresa_dorucenia: varchar(256)
+mesto: varchar(32)
 psc: int
-status: FK
-druh_pladby: enum(karta|hotovost)
+krajna: varchar(32)
+stav_onj: int FK
+druh_pladby: int FK
 uhradene: boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1365</x>
-      <y>507</y>
-      <w>65</w>
-      <h>143</h>
+      <x>1180</x>
+      <y>570</y>
+      <w>50</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>m1=0..*
 m2=1
@@ -251,10 +256,10 @@ m2=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1092</x>
-      <y>338</y>
-      <w>208</w>
-      <h>65</h>
+      <x>970</x>
+      <y>440</y>
+      <w>160</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=1..*
@@ -264,10 +269,10 @@ m2=1..*
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>338</y>
-      <w>286</w>
-      <h>312</h>
+      <x>610</x>
+      <y>440</y>
+      <w>220</w>
+      <h>240</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=1..*
@@ -277,25 +282,53 @@ m2=1..*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1781</x>
-      <y>377</y>
+      <x>1500</x>
+      <y>470</y>
       <w>130</w>
-      <h>78</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>stav_obj
 --
-id: PK
-nazov: text
+id: int PK
+nazov: varchar(64)
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1664</x>
+      <x>1410</x>
+      <y>480</y>
+      <w>110</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>m1=1
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1500</x>
+      <y>380</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>druh_platby
+--
+id: int PK
+nazov: varchar(64)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1410</x>
       <y>390</y>
-      <w>143</w>
-      <h>65</h>
+      <w>110</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>m1=1
 m2=1
