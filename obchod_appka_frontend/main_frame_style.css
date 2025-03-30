@@ -65,6 +65,10 @@
     width: auto;
 }
 
+.page-link {
+    color: black !important;
+}
+
 .container-produkt{
     padding: 0px 100px;
 }

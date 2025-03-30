@@ -38,24 +38,6 @@ header {
     align-items: center;
 }
 
-#mobile-search-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    #search-input, #search-btn {
-        display: none;
-    }
-    #mobile-search-btn {
-        display: block;
-        border: 3px solid black;
-        border-radius: 15px;
-    }
-}
 
 .search-container input {
     padding: 8px;
