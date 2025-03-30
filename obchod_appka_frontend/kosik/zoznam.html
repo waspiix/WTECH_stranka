@@ -75,9 +75,11 @@
       <div class="sipka">
         <img src="../svg/prava_sipka.svg" alt="sipka" height="40" />
       </div>
-      <div class="circle_no">
-        <img src="../svg/check.svg" alt="Done" width="50" />
-      </div>
+      <a href="done.html">
+        <div class="circle_no">
+          <img src="../svg/check.svg" alt="Done" width="50" />
+        </div>
+      </a>
     </div>
 
     <!-- zoznam produktov v kosiku -->
@@ -106,8 +108,8 @@
               </div>
               <div class="col-6 col-sm-6 d-flex align-items-center">
                 <div>
-                  <h2>Nike Air Force</h2>
-                  <label for="" class="form-label">Velkosť</label>
+                  <p class="produkt_nazov">Nike Air Force</p>
+                  <label for="velkost_1" class="form-label">Velkosť</label>
                   <select
                     class="form-select w-auto"
                     name="velkost topanok"
@@ -122,7 +124,7 @@
                 </div>
               </div>
               <div class="col-3 col-sm-2 d-flex align-items-center">
-                <h2>99,00€</h2>
+                <p class="cena"><b>99,00€</b></p>
               </div>
               <div
                 class="col-3 col-sm-1 d-flex justify-content-end align-items-end align-items-sm-start"
@@ -138,7 +140,7 @@
             </div>
           </li>
           <li class="list-group-item">
-            <div class="row" id="item_1">
+            <div class="row" id="item_2">
               <div class="col-12 col-sm-3">
                 <img
                   src="../pictures/muzi/Tenisky/nike_airforce.jpg"
@@ -146,25 +148,25 @@
                   class="w-100 rounded-4 mb-2"
                 />
                 <div class="input-group flex-nowrap">
-                  <button onclick="up(1)" class="btn btn-outline-dark">
+                  <button onclick="up(2)" class="btn btn-outline-dark">
                     +
                   </button>
-                  <span id="pocet_ks_1" class="text-center form-control"
+                  <span id="pocet_ks_2" class="text-center form-control"
                     >1</span
                   >
-                  <button onclick="down(1)" class="btn btn-outline-dark">
+                  <button onclick="down(2)" class="btn btn-outline-dark">
                     -
                   </button>
                 </div>
               </div>
               <div class="col-6 col-sm-6 d-flex align-items-center">
                 <div>
-                  <h2>Nike Air Force</h2>
-                  <label for="" class="form-label">Velkosť</label>
+                  <p class="produkt_nazov">Nike Air Force</p>
+                  <label for="velkost_2" class="form-label">Velkosť</label>
                   <select
                     class="form-select w-auto"
                     name="velkost topanok"
-                    id="velkost_1"
+                    id="velkost_2"
                   >
                     <option value="">38</option>
                     <option value="">39</option>
@@ -175,14 +177,14 @@
                 </div>
               </div>
               <div class="col-3 col-sm-2 d-flex align-items-center">
-                <h2>99,00€</h2>
+                <p class="cena"><b>99,00€</b></p>
               </div>
               <div
                 class="col-3 col-sm-1 d-flex justify-content-end align-items-end align-items-sm-start"
               >
                 <button
                   type="remove"
-                  onclick="close_span(1)"
+                  onclick="close_span(2)"
                   class="btn btn-danger"
                 >
                   X
@@ -196,7 +198,7 @@
     <div class="container px-4">
       <div class="row gx-5">
         <div class="col p-3">
-          <h3>Spolu: <b>199,99€</b></h3>
+          <p class="cena">Spolu: <b>198,00€</b></p>
         </div>
         <div class="col p-3 text-end">
           <button type="button" class="btn btn-primary">Pokračovať</button>

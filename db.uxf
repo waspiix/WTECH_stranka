@@ -1,82 +1,31 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="15.1">
-  <zoom_level>13</zoom_level>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>0</x>
-      <y>637</y>
-      <w>208</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>znacka
+<diagram program="umletino" version="15.1"><zoom_level>13</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>741</y><w>208</w><h>104</h></coordinates><panel_attributes>znacka
 --
 id: PK
 name: text
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>0</x>
-      <y>754</y>
-      <w>208</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>farba
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>858</y><w>208</w><h>104</h></coordinates><panel_attributes>farba
 --
 id: PK
 name: text
-hex: int</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1274</x>
-      <y>624</y>
-      <w>221</w>
-      <h>182</h>
-    </coordinates>
-    <panel_attributes>zakaznik
+hex: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1274</x><y>728</y><w>299</w><h>260</h></coordinates><panel_attributes>zakaznik
 --
 id: PK
 email: text
 passwd: hash
 meno: text
 priezvisko: text
-adresa...
-admin: boolean</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>0</x>
-      <y>520</y>
-      <w>208</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>druh
+ulica: text
+mesto: text
+psc: int
+krajna: text
+admin: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>624</y><w>208</w><h>104</h></coordinates><panel_attributes>druh
 --
 id: PK
 name: text
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>520</x>
-      <y>624</y>
-      <w>221</w>
-      <h>286</h>
-    </coordinates>
-    <panel_attributes>produkt_topanky
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>728</y><w>221</w><h>286</h></coordinates><panel_attributes>produkt_topanky
 --
 id: PK
 name: text
+popis: text
 znacka_id: FK
 farba_prim_id: FK
 farba_sek_id: FK
@@ -85,143 +34,33 @@ pohlavie_id: FK
 pocet_obrazkov: int
 velkost_od: int
 velkost_do: int
-cena: int</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>884</x>
-      <y>624</y>
-      <w>221</w>
-      <h>182</h>
-    </coordinates>
-    <panel_attributes>zakaznik_produkt (kosik)
+cena: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>884</x><y>728</y><w>221</w><h>182</h></coordinates><panel_attributes>zakaznik_produkt (kosik)
 --
 zakaznik_id: FK
 produkt_id: FK
 pocet: int
-velkost: int</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1092</x>
-      <y>689</y>
-      <w>208</w>
-      <h>65</h>
-    </coordinates>
-    <panel_attributes>m1=0..*
+velkost: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1092</x><y>793</y><w>208</w><h>65</h></coordinates><panel_attributes>m1=0..*
 m2=1
-</panel_attributes>
-    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>728</x>
-      <y>689</y>
-      <w>182</w>
-      <h>65</h>
-    </coordinates>
-    <panel_attributes>m1=1
+</panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>728</x><y>793</y><w>182</w><h>65</h></coordinates><panel_attributes>m1=1
 m2=0..*
-</panel_attributes>
-    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>195</x>
-      <y>559</y>
-      <w>351</w>
-      <h>169</h>
-    </coordinates>
-    <panel_attributes>m1=1
+</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>195</x><y>663</y><w>351</w><h>169</h></coordinates><panel_attributes>m1=1
 m2=1
-</panel_attributes>
-    <additional_attributes>10.0;10.0;250.0;110.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>195</x>
-      <y>676</y>
-      <w>351</w>
-      <h>91</h>
-    </coordinates>
-    <panel_attributes>m1=1
+</panel_attributes><additional_attributes>10;10;250;110</additional_attributes></element><element><id>Relation</id><coordinates><x>195</x><y>780</y><w>351</w><h>91</h></coordinates><panel_attributes>m1=1
 m2=1
-</panel_attributes>
-    <additional_attributes>10.0;10.0;250.0;40.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>195</x>
-      <y>741</y>
-      <w>351</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>m1=1
+</panel_attributes><additional_attributes>10;10;250;40</additional_attributes></element><element><id>Relation</id><coordinates><x>195</x><y>845</y><w>351</w><h>104</h></coordinates><panel_attributes>m1=1
 m2=1
-</panel_attributes>
-    <additional_attributes>10.0;50.0;250.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>0</x>
-      <y>871</y>
-      <w>208</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>pohlavie
+</panel_attributes><additional_attributes>10;50;250;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>975</y><w>208</w><h>104</h></coordinates><panel_attributes>pohlavie
 --
 id: PK
 name: text
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>195</x>
-      <y>780</y>
-      <w>351</w>
-      <h>182</h>
-    </coordinates>
-    <panel_attributes>m1=1
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>195</x><y>884</y><w>351</w><h>182</h></coordinates><panel_attributes>m1=1
 m2=1
-</panel_attributes>
-    <additional_attributes>10.0;120.0;250.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>884</x>
-      <y>208</y>
-      <w>221</w>
-      <h>247</h>
-    </coordinates>
-    <panel_attributes>polozka_objednavky
+</panel_attributes><additional_attributes>10;120;250;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>884</x><y>312</y><w>221</w><h>247</h></coordinates><panel_attributes>polozka_objednavky
 --
 objednavka_id: FK
 produkt_id: FK
 pocet: int
-velkost: int</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1274</x>
-      <y>208</y>
-      <w>403</w>
-      <h>312</h>
-    </coordinates>
-    <panel_attributes>objednavka
+velkost: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1274</x><y>312</y><w>403</w><h>312</h></coordinates><panel_attributes>objednavka
 --
 id: PK
 zakaznik_id: FK
@@ -230,76 +69,25 @@ datum_vytvorenia: date:time
 adresa_dorucenia: text
 mesto: text
 psc: int
+krajna: text
 status: FK
-druh_pladby: enum(karta|hotovost)
-uhradene: boolean</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1365</x>
-      <y>507</y>
-      <w>65</w>
-      <h>143</h>
-    </coordinates>
-    <panel_attributes>m1=0..*
+druh_pladby: FK
+uhradene: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1365</x><y>611</y><w>65</w><h>143</h></coordinates><panel_attributes>m1=0..*
 m2=1
-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1092</x>
-      <y>338</y>
-      <w>208</w>
-      <h>65</h>
-    </coordinates>
-    <panel_attributes>m1=1
+</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>1092</x><y>442</y><w>208</w><h>65</h></coordinates><panel_attributes>m1=1
 m2=1..*
-</panel_attributes>
-    <additional_attributes>140.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>624</x>
-      <y>338</y>
-      <w>286</w>
-      <h>312</h>
-    </coordinates>
-    <panel_attributes>m1=1
+</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>624</x><y>442</y><w>286</w><h>312</h></coordinates><panel_attributes>m1=1
 m2=1..*
-</panel_attributes>
-    <additional_attributes>10.0;220.0;10.0;10.0;200.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>1781</x>
-      <y>377</y>
-      <w>130</w>
-      <h>78</h>
-    </coordinates>
-    <panel_attributes>stav_obj
+</panel_attributes><additional_attributes>10;220;10;10;200;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1781</x><y>481</y><w>130</w><h>78</h></coordinates><panel_attributes>stav_obj
 --
 id: PK
 nazov: text
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1664</x>
-      <y>390</y>
-      <w>143</w>
-      <h>65</h>
-    </coordinates>
-    <panel_attributes>m1=1
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1664</x><y>494</y><w>143</w><h>65</h></coordinates><panel_attributes>m1=1
 m2=1
-</panel_attributes>
-    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
-  </element>
-</diagram>
+</panel_attributes><additional_attributes>10;20;90;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1781</x><y>364</y><w>130</w><h>78</h></coordinates><panel_attributes>druh_platby
+--
+id: PK
+nazov: text
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1664</x><y>377</y><w>143</w><h>65</h></coordinates><panel_attributes>m1=1
+m2=1
+</panel_attributes><additional_attributes>10;20;90;20</additional_attributes></element></diagram>
