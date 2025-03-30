@@ -32,7 +32,7 @@
 }
 
 .cena{
-  font-size: 2rem;
+  font-size: calc(1.25rem + .9vw);
 }
 
 .produkt_suhrn{
@@ -40,7 +40,7 @@
 }
 
 .produkt_nazov{
-  font-size:2.5rem;
+  font-size: calc(1.5rem + .9vw);
 }
 
 .sipka {
