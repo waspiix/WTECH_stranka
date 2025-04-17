@@ -2,47 +2,38 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+    // Povoľ mass-assignment pre tieto polia
     protected $fillable = [
-        'name',
+        'meno',
+        'priezvisko',
         'email',
         'password',
+        'passwrd_hash',
+        'krajina',
+        'mesto',
+        'ulica',
+        'PSC',
+        'admin',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
+    // Skryť citlivé údaje pri serializácii (napr. pri JSON odpovediach)
     protected $hidden = [
         'password',
+        'passwrd_hash',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+    // Typy pre casting
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'admin' => 'boolean',
+    ];
 }
