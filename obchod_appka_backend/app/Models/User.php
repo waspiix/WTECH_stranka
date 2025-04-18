@@ -16,7 +16,6 @@ class User extends Authenticatable
         'priezvisko',
         'email',
         'password',
-        'passwrd_hash',
         'krajina',
         'mesto',
         'ulica',
@@ -27,7 +26,6 @@ class User extends Authenticatable
     // Skryť citlivé údaje pri serializácii (napr. pri JSON odpovediach)
     protected $hidden = [
         'password',
-        'passwrd_hash',
         'remember_token',
     ];
 

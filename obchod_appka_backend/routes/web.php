@@ -3,10 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 // user controller
 Route::resource('users', UserController::class);
@@ -26,3 +25,14 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+//index
+Route::get('/', function () {
+    return view('index');
+})->name('home');
+
+//profile
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
+});

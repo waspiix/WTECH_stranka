@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('priezvisko', 64);
             $table->string('email', 64)->unique();
             $table->string('password', 128);
-            $table->string('passwrd_hash', 128);
             $table->string('krajina', 32)->nullable();
             $table->string('mesto', 32)->nullable();
             $table->string('ulica', 64)->nullable();

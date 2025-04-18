@@ -1,0 +1,111 @@
+
+
+.nahlad-container{
+    display: block;
+    align-items: center;
+    padding: 10px 100px;
+    
+}
+
+.text_nadpis{
+    font-size: 24px;  
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.shoe_store-obrazok{
+    max-width: 100%;  
+    height: auto;
+    margin: 20px auto;
+}
+
+.text-format{
+    font-size: 16px;  
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ikona{
+    width: 30px;
+    height: 30px;
+}
+
+.moj-obrazok {
+    width: 70%;  /* alebo 100vw */
+    height: auto;  /* zachová pomer strán */
+    display: block; /* odstráni medzeru pod obrázkom */
+}
+
+
+
+.popis-produktu-nahlad {
+    flex: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 0px 30px;
+}
+
+.obrazok-muz_topanky{
+    width: 31%;  /* alebo 100vw */
+    height: auto;  /* zachová pomer strán */
+    display: block; 
+}
+
+.show_product-container {
+    display: flex; 
+    justify-content: flex-start;  
+    width: auto;
+
+}
+
+.pohlavie_obrazky-container{
+    display: flex;
+    align-items: center;
+    padding: 10px 100px;
+    width: auto;
+}
+
+.page-link {
+    color: black !important;
+}
+
+.footer-icons {
+    color: black !important;
+}
+
+.container-produkt{
+    padding: 0px 100px;
+}
+
+.container-margin{
+    margin: 40px 100px;
+}
+
+.back-button {
+    top: 10px;
+    left: 10px;
+    margin: 0px 100px;
+    background-color: white;
+    color: black;
+    padding: 7px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 12px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.back-button:hover {
+    background-color: #99a1a7;
+}
+
+.input-style-admin {
+    width: 50%;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.input-style-admin-cena {
+    width: 10%;
+    border-radius: 5px;
+    height: 40px;
+}
