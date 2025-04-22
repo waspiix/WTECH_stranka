@@ -2,51 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\UserModel;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function update(Request $request)
     {
-        $usersList = User::all();
-        return view('users.index')->with('usersList', 
-        $usersList);
+        $user = Auth::user();
+
+        $user->meno = $request->input('meno');
+        $user->priezvisko = $request->input('priezvisko');
+        $user->email = $request->input('email');
+        $user->telefon = $request->input('telefon');
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profil bol aktualizovaný.');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function updateAddress(Request $request)
     {
-        //
-    }
+        $user = Auth::user();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(UserModel $userModel)
-    {
-        return view('users.profile', ['id' => $id]);
-    }
+        $user->krajina = $request->input('krajina');
+        $user->ulica = $request->input('ulica');
+        $user->mesto = $request->input('mesto');
+        $user->PSC = $request->input('PSC');
+        $user->save();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, UserModel $userModel)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(UserModel $userModel)
-    {
-        //
+        return redirect()->back()->with('success', 'Adresa bola aktualizovaná.');
     }
 }

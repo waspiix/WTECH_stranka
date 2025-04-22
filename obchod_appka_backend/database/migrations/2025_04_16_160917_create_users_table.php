@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('meno', 64);
             $table->string('priezvisko', 64);
             $table->string('email', 64)->unique();
+            $table->string('telefon', 16)->nullable();
             $table->string('password', 128);
             $table->string('krajina', 32)->nullable();
             $table->string('mesto', 32)->nullable();

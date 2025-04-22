@@ -36,3 +36,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 });
+
+//update profile
+Route::post('/profile/update', [UserController::class, 'update'])->name('profile.update');
+Route::post('/profile/address/update', [UserController::class, 'updateAddress'])->name('profile.address.update');

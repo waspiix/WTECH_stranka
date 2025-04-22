@@ -5,59 +5,69 @@
     <button class="text-format back-button" onclick="window.location.href='{{ url('/') }}';">< Späť</button>
 
     <div class="row mt-4 gap-4" style="padding: 0px 100px;">          
-        <div class="col-md-5 card p-3 shadow">
+
+        {{-- Profil --}}
+        <div class="col-md-5 mb-5 card p-3 shadow">
             <div class="card-body">
                 <h1 class="text_nadpis mb-3">Zákaznícky profil</h1>
-                <img src="pictures/profile_icon.png" alt="profil" class="ikona mb-3" width="100">
-                
-                <form class="text-format">
+                <img src="{{ asset('pictures/profile_icon.png') }}" alt="profil" class="ikona mb-3" width="100">
+
+                <form class="text-format" method="POST" action="{{ route('profile.update') }}">
+                    @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Meno</label>
-                        <input type="text" class="form-control" id="name" value="{{ Auth::user()->meno }}">
+                        <input type="text" class="form-control" name="meno" value="{{ Auth::user()->meno }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="surname" class="form-label">Priezvisko</label>
-                        <input type="text" class="form-control" id="surname" value="{{ Auth::user()->priezvisko }}">
+                        <input type="text" class="form-control" name="priezvisko" value="{{ Auth::user()->priezvisko }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" value="{{ Auth::user()->email }}">
+                        <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-5">
                         <label for="phone" class="form-label">Telefón</label>
-                        <input type="tel" class="form-control" id="phone" value="{{ Auth::user()->phone }}">
+                        <input type="tel" class="form-control" name="telefon" value="{{ Auth::user()->telefon }}">
                     </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Uložiť zmeny</button>
+                    <button type="submit" class="mt-3 btn btn-primary w-100">Uložiť zmeny</button>
                 </form>
             </div>
         </div>
 
-        <div class="col-md-5 card p-3 shadow">
+        {{-- Adresa --}}
+        <div class="col-md-5 mb-5 card p-3 shadow">
             <div class="card-body">
                 <h1 class="text_nadpis mb-3">Adresa doručenia</h1>
-                <img src="pictures/address_icon.png" alt="profil" class="ikona mb-3" width="100">
-                
-                <form class="text-format">
+                <img src="{{ asset('pictures/address_icon.png') }}" alt="profil" class="ikona mb-3" width="100">
+
+                <form class="text-format" method="POST" action="{{ route('profile.address.update') }}">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="krajina" class="form-label">Krajina</label>
+                        <input type="text" class="form-control" name="krajina" value="{{ Auth::user()->krajina }}">
+                    </div>
+                    
                     <div class="mb-3">
                         <label for="address" class="form-label">Ulica</label>
-                        <input type="text" class="form-control" id="address" value="{{ Auth::user()->address }}">
+                        <input type="text" class="form-control" name="ulica" value="{{ Auth::user()->ulica }}">
                     </div>
 
                     <div class="mb-3">
                         <label for="city" class="form-label">Obec</label>
-                        <input type="text" class="form-control" id="city" value="{{ Auth::user()->city }}">
+                        <input type="text" class="form-control" name="mesto" value="{{ Auth::user()->mesto }}">
                     </div>
 
                     <div class="mb-5">
                         <label for="postal_code" class="form-label">PSČ</label>
-                        <input type="text" class="form-control" id="postal_code" value="{{ Auth::user()->postal_code }}">
+                        <input type="text" class="form-control" name="PSC" value="{{ Auth::user()->PSC }}">
                     </div>
 
-                    <button type="submit" class="mt-5 btn btn-primary w-100">Uložiť zmeny</button>
+                    <button type="submit" class="mt-3 btn btn-primary w-100">Uložiť zmeny</button>
                 </form>
             </div>
         </div>
