@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 //index
@@ -40,3 +40,8 @@ Route::middleware(['auth'])->group(function () {
 //update profile
 Route::post('/profile/update', [UserController::class, 'update'])->name('profile.update');
 Route::post('/profile/address/update', [UserController::class, 'updateAddress'])->name('profile.address.update');
+
+// kosik
+Route::get('/kosik', function () {
+    return view('kosik.index');
+});
