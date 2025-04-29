@@ -25,5 +25,20 @@ class AdminUserSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        DB::table('users')->insert([
+            'meno' => 'test',
+            'priezvisko' => 'test',
+            'email' => 'test@test.test',
+            'telefon' => '0900000000',
+            'password' => Hash::make('test'),
+            'krajina' => 'Slovensko',
+            'mesto' => 'Bratislava',
+            'ulica' => 'Hlavná 1',
+            'PSC' => '81101',
+            'admin' => false,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
