@@ -14,10 +14,11 @@
     <div class="container px-4">
         <div class="row gx-5">
             <div class="col p-3">
-                <p class="cena">Spolu: <b>198,00€</b></p>
+                <p class="cena">Spolu: <b>{{ $cena_spolu }}€</b></p>
             </div>
             <div class="col p-3 text-end">
-                <button type="button" class="btn btn-primary">Pokračovať</button>
+                <button type="button" class="btn btn-primary"
+                    @if ($cena_spolu == 0) disabled @endif>Pokračovať</button>
             </div>
         </div>
     </div>

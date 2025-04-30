@@ -35,7 +35,8 @@ class KosikController extends Controller
                         'velkost_vybrata' => 39,
                         'obrazok' => 'muzi/Tenisky/nike_airforce.jpg',
                     ]
-                ]
+                ],
+                'cena_spolu' => 99.99 + 99.99
             ]
 
         );
