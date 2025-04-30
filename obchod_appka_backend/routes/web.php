@@ -52,3 +52,6 @@ Route::post('/profile/address/update', [UserController::class, 'updateAddress'])
 
 // kosik
 Route::resource('kosik', KosikController::class)->only(['index', 'store', 'update', 'destroy']);
+
+// ukaz nahlad jednotliveho produktu
+Route::get('/produkt/{id}', [ProductController::class, 'show'])->name('produkt.show');

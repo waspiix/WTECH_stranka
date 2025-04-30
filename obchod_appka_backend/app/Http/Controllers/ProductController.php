@@ -10,6 +10,13 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+
+    public function show($id)
+    {
+        $produkt = Product::with('image')->findOrFail($id);
+        return view('produkt.produkt', compact('produkt'));
+    }
+
     public function zobraz($pohlavie, $kategoria = null)
     {
         $query = Product::query();

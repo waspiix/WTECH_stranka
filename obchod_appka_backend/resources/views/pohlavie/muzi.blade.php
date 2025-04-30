@@ -32,7 +32,7 @@
                             <div class="card-body d-flex flex-column">
                                 <p class="card-title">{{ $produkt->name}}<p>
                                 <p class="card-text">{{ $produkt->cena }} €</p>
-                                <a href="#" class="btn btn-primary mt-auto">Detail</a>
+                                <a href="{{ route('produkt.show', $produkt->id) }}" class="btn btn-primary">Detail</a>
                             </div>
                         </div>
                     </div>
