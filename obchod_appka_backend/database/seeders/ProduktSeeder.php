@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Image;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\ProduktImage;
@@ -12,7 +14,7 @@ class ProduktSeeder extends Seeder
     public function run()
     {
         // Referenčné tabuľky
-        DB::table('znacky')->insert([
+        DB::table('brands')->insert([
             ['nazov' => 'Nike'],
             ['nazov' => 'Adidas'],
             ['nazov' => 'Vans'],
@@ -20,7 +22,7 @@ class ProduktSeeder extends Seeder
             ['nazov' => 'Converse'],
         ]);
 
-        DB::table('farby')->insert([
+        DB::table('colors')->insert([
             ['nazov' => 'Čierna'],
             ['nazov' => 'Biela'],
             ['nazov' => 'Modrá'],
@@ -32,7 +34,7 @@ class ProduktSeeder extends Seeder
             ['nazov' => 'Hnedá'],
         ]);
 
-        DB::table('druhy')->insert([
+        DB::table('types')->insert([
             ['nazov' => 'tenisky'],
             ['nazov' => 'formalna'],
             ['nazov' => 'outdoor'],
@@ -40,42 +42,41 @@ class ProduktSeeder extends Seeder
             ['nazov' => 'letna'],
         ]);
 
-        DB::table('pohlavia')->insert([
+        DB::table('genders')->insert([
             ['nazov' => 'muzi'],
             ['nazov' => 'zeny'],
             ['nazov' => 'deti'],
         ]);
 
         // Produkt_topanky
-        DB::table('produkty')->insert([
+        DB::table('products')->insert([
             [
                 'name' => 'Nike Air Max',
                 'popis' => 'Pohodlné tenisky na behanie',
-                'znacka_id' => 1,
-                'farba_id' => 1,
-                'druh_id' => 1,
-                'pohlavie_id' => 1,
+                'brand_id' => 1,
+                'color_id' => 1,
+                'type_id' => 1,
+                'gender_id' => 1,
                 'velkost_od' => 38,
                 'velkost_do' => 42,
                 'cena' => 99.99,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            
+
         ]);
-        $produkty = Produkt::all();
+        $produkty = Product::all();
 
         foreach ($produkty as $produkt) {
-            ProduktImage::create([
+            Image::create([
                 'product_id' => $produkt->id,
                 'image_path' => 'muzi/tenisky/nike_airforce.jpg', // relatívna cesta v storage/app/public/...
             ]);
-    
-            ProduktImage::create([
+
+            Image::create([
                 'product_id' => $produkt->id,
                 'image_path' => 'muzi/tenisky/nike_airforce2.jpg',
             ]);
         }
-    
     }
 }

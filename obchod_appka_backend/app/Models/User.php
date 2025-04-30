@@ -36,9 +36,9 @@ class User extends Authenticatable
         'admin' => 'boolean',
     ];
 
-    // template ale este nie su produkty model...
-    // public function produkty(): HasMany
-    // {
-    //     return $this->hasMany(produkty::class);
-    // }
+    // prenosny kosik
+    public function produkty(): HasMany
+    {
+        return $this->hasMany(Product::class)->withPivot('pocet', 'velkost')->withTimestamps();
+    }
 }
