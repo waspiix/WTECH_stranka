@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\ProduktImage;
+use App\Models\Produkt;
 
 class ProduktSeeder extends Seeder
 {
@@ -31,17 +33,17 @@ class ProduktSeeder extends Seeder
         ]);
 
         DB::table('druhy')->insert([
-            ['nazov' => 'Tenisky'],
-            ['nazov' => 'Formálna'],
-            ['nazov' => 'Outdoor'],
-            ['nazov' => 'Čižmy'],
-            ['nazov' => 'Letná'],
+            ['nazov' => 'tenisky'],
+            ['nazov' => 'formalna'],
+            ['nazov' => 'outdoor'],
+            ['nazov' => 'cizmy'],
+            ['nazov' => 'letna'],
         ]);
 
         DB::table('pohlavia')->insert([
-            ['nazov' => 'Muži'],
-            ['nazov' => 'Ženy'],
-            ['nazov' => 'Deti'],
+            ['nazov' => 'muzi'],
+            ['nazov' => 'zeny'],
+            ['nazov' => 'deti'],
         ]);
 
         // Produkt_topanky
@@ -61,5 +63,19 @@ class ProduktSeeder extends Seeder
             ],
             
         ]);
+        $produkty = Produkt::all();
+
+        foreach ($produkty as $produkt) {
+            ProduktImage::create([
+                'product_id' => $produkt->id,
+                'image_path' => 'muzi/tenisky/nike_airforce.jpg', // relatívna cesta v storage/app/public/...
+            ]);
+    
+            ProduktImage::create([
+                'product_id' => $produkt->id,
+                'image_path' => 'muzi/tenisky/nike_airforce2.jpg',
+            ]);
+        }
+    
     }
 }

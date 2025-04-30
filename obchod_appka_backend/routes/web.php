@@ -4,9 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
+<<<<<<< HEAD
+use App\Http\Controllers\ProductController;
+=======
 use App\Http\Controllers\KosikController;
 
 
+>>>>>>> 6935141d83192e9c5c61529f8cd87b9139ecfb33
 
 // user controller
 Route::resource('users', UserController::class);
@@ -32,6 +36,14 @@ require __DIR__ . '/auth.php';
 Route::get('/', function () {
     return view('index');
 })->name('home');
+
+
+// Základné filtrovanie podľa pohlavia
+Route::get('/produkty/{pohlavie}/{kategoria?}', [ProductController::class, 'zobraz'])->name('produkty.zobraz');
+
+// Filtrovanie podľa pohlavia + kategórie
+// Route::get('/produkty/{pohlavie}/{kategoria}', [ProductController::class, 'index'])->name('produkty.filtruj');
+
 
 //profile
 Route::middleware(['auth'])->group(function () {
