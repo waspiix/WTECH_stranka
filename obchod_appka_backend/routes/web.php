@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\KosikController;
 
 
 
@@ -42,6 +43,4 @@ Route::post('/profile/update', [UserController::class, 'update'])->name('profile
 Route::post('/profile/address/update', [UserController::class, 'updateAddress'])->name('profile.address.update');
 
 // kosik
-Route::get('/kosik', function () {
-    return view('kosik.index');
-});
+Route::resource('kosik', KosikController::class)->only(['index', 'store', 'update', 'destroy']);

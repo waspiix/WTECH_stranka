@@ -5,9 +5,9 @@
     <div class="container bg-light p-3 rounded-5">
         <div class="bg-white p-2 rounded-4">
             <ul class="list-group list-group-flush">
-                @for ($i = 0; $i < 1; $i++)
-                    @include('kosik.partials.item', ['nazov' => $i, 'cena' => 99, 'pocet' => 1])
-                @endfor
+                @foreach ($items as $item)
+                    @include('kosik.partials.item', $item)
+                @endforeach
             </ul>
         </div>
     </div>

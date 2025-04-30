@@ -15,7 +15,7 @@ return new class extends Migration {
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('produkt_id');
-            $table->integer('pocet');
+            $table->integer('pocet')->default(1);
             $table->integer('velkost');
             $table->timestamps();
 
