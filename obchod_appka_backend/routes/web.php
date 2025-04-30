@@ -4,7 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
+<<<<<<< HEAD
 use App\Http\Controllers\ProductController;
+=======
+use App\Http\Controllers\KosikController;
+
+
+>>>>>>> 6935141d83192e9c5c61529f8cd87b9139ecfb33
 
 // user controller
 Route::resource('users', UserController::class);
@@ -23,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 //index
@@ -47,3 +53,6 @@ Route::middleware(['auth'])->group(function () {
 //update profile
 Route::post('/profile/update', [UserController::class, 'update'])->name('profile.update');
 Route::post('/profile/address/update', [UserController::class, 'updateAddress'])->name('profile.address.update');
+
+// kosik
+Route::resource('kosik', KosikController::class)->only(['index', 'store', 'update', 'destroy']);
