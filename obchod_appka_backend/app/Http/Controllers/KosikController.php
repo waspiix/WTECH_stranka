@@ -16,9 +16,8 @@ class KosikController extends Controller
     {
         //
         $user = User::find(2);
-        $products = $user->products;
 
-        // return $products;
+        $products = $user->products()->with('image')->get();
 
         return view(
             'kosik.index',

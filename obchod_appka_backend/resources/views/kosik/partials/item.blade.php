@@ -1,7 +1,8 @@
 <li class="list-group-item">
     <div class="row" id="item_2">
         <div class="col-12 col-sm-3">
-            <img src=" {{ asset('pictures/' . '$obrazok') }}" alt="topanky" class="w-100 rounded-4 mb-2" />
+            <img src=" {{ asset('storage/' . $item->image->first()->image_path) }}" alt="topanky"
+                class="w-100 rounded-4 mb-2" />
             <div class="input-group flex-nowrap">
                 <button onclick="up(2)" class="btn btn-outline-dark">
                     +
@@ -15,13 +16,8 @@
         <div class="col-6 col-sm-6 d-flex align-items-center">
             <div>
                 <p class="produkt_nazov">{{ $name }}</p>
-                <label for="velkost_2" class="form-label">Velkosť</label>
-                <select class="form-select w-auto" name="velkost topanok" id="velkost_2">
-                    @for ($i = $velkost_od; $i <= $velkost_do; $i++)
-                        <option value="{{ $i }}" @if ($i == $item->pivot->velkost) selected @endif>
-                            {{ $i }}</option>
-                    @endfor
-                </select>
+                {{-- <label for="velkost_2" class="form-label">Velkosť</label> --}}
+                <p>{{ $item->pivot->velkost }}</p>
             </div>
         </div>
         <div class="col-3 col-sm-2 d-flex align-items-center">
