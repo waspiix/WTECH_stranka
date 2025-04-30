@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -37,8 +37,8 @@ class User extends Authenticatable
     ];
 
     // prenosny kosik
-    public function produkty(): HasMany
+    public function products(): BelongsToMany
     {
-        return $this->hasMany(Product::class)->withPivot('pocet', 'velkost')->withTimestamps();
+        return $this->belongsToMany(Product::class)->withPivot('id', 'pocet', 'velkost')->withTimestamps();
     }
 }

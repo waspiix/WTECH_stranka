@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class KosikController extends Controller
@@ -12,66 +15,32 @@ class KosikController extends Controller
     public function index()
     {
         //
+        $user = User::find(2);
+        $products = $user->products;
+
+        // return $products;
+
         return view(
             'kosik.index',
             [
-                'items' =>
-                [
-                    [
-                        'nazov' => 'Topanky',
-                        'cena' => 99.99,
-                        'pocet' => 1,
-                        'velkost_od' => 37,
-                        'velkost_do' => 42,
-                        'velkost_vybrata' => 39,
-                        'obrazok' => 'muzi/Tenisky/nike_airforce.jpg',
-                    ],
-                    [
-                        'nazov' => 'Topanky',
-                        'cena' => 99.99,
-                        'pocet' => 1,
-                        'velkost_od' => 37,
-                        'velkost_do' => 42,
-                        'velkost_vybrata' => 39,
-                        'obrazok' => 'muzi/Tenisky/nike_airforce.jpg',
-                    ]
-                ],
+                'items' => $products,
                 'cena_spolu' => 99.99 + 99.99
             ]
-
         );
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         //
-    }
+        $user = User::find(2);
+        $product = Product::find(1);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        $user->products()->attach($product->id, ['pocet' => 1, 'velkost' => 40]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        return redirect('/kosik');
     }
 
     /**
@@ -85,8 +54,12 @@ class KosikController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id): RedirectResponse
     {
         //
+        $user = User::find(2);
+        $user->products()->wherePivot('id', $id)->detach();
+
+        return redirect('/kosik');
     }
 }
