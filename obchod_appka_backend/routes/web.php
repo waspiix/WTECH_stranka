@@ -4,13 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
-<<<<<<< HEAD
 use App\Http\Controllers\ProductController;
-=======
 use App\Http\Controllers\KosikController;
 
-
->>>>>>> 6935141d83192e9c5c61529f8cd87b9139ecfb33
 
 // user controller
 Route::resource('users', UserController::class);
