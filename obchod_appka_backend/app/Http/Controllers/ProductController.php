@@ -25,15 +25,9 @@ class ProductController extends Controller
         $query->whereHas('gender', function ($q) use ($pohlavie) {
             $q->where('nazov', $pohlavie);
         });
-<<<<<<< HEAD
     
         $produkty = $query->paginate(8);
     
-=======
-
-        $produkty = $query->get();
-
->>>>>>> c85d66dc1282e64cda65347650aff31d1728129a
         $viewPath = 'pohlavie.' . $pohlavie;
 
         if (!view()->exists($viewPath)) {
