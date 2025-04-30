@@ -25,7 +25,7 @@ class ProductController extends Controller
             $q->where('nazov', $pohlavie);
         });
     
-        $produkty = $query->get();
+        $produkty = $query->paginate(8);
     
         $viewPath = 'pohlavie.' . $pohlavie;
     

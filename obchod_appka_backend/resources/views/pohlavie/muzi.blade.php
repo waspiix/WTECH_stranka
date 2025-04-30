@@ -37,6 +37,9 @@
           </div>
         @endforeach
       </div>
+      <div class="d-flex justify-content-center mt-4">
+        {{ $produkty->links() }}
+      </div>
     </div>
   @else
     <p class="text-center">Žiadne produkty neboli nájdené pre tento výber.</p>
