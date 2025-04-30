@@ -12,7 +12,7 @@
         <img src="{{ asset('storage/muzi/nahlad/muz.jpg') }}" alt="muz" class="moj-obrazok">
         <img src="{{ asset('storage/muzi/nahlad/muz_topanky2.jpg') }}" alt="topanky" class="obrazok-muz_topanky">
     </div>
-
+    @include('partials.produkt-filtre')
     @if (isset($produkty) && $produkty->count())
         <div class="container mt-5">
             <h2 class="text-format mb-3">
@@ -30,7 +30,7 @@
                                     class="card-img-top" alt="{{ $produkt->nazov }}">
                             @endif
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">{{ $produkt->nazov }}</h5>
+                                <p class="card-title">{{ $produkt->name}}<p>
                                 <p class="card-text">{{ $produkt->cena }} €</p>
                                 <a href="#" class="btn btn-primary mt-auto">Detail</a>
                             </div>
@@ -38,6 +38,10 @@
                     </div>
                 @endforeach
             </div>
+            
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+            {{ $produkty->links() }}
         </div>
     @else
         <p class="text-center">Žiadne produkty neboli nájdené pre tento výber.</p>
