@@ -10,11 +10,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    // Povoľ mass-assignment pre tieto polia
     protected $fillable = [
         'meno',
         'priezvisko',
         'email',
+        'telefon',
         'password',
         'krajina',
         'mesto',
@@ -23,7 +23,7 @@ class User extends Authenticatable
         'admin',
     ];
 
-    // Skryť citlivé údaje pri serializácii (napr. pri JSON odpovediach)
+    // Skryť citlivé údaje
     protected $hidden = [
         'password',
         'remember_token',

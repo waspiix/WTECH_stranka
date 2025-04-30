@@ -4,8 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
-
-
+use App\Http\Controllers\ProductController;
 
 // user controller
 Route::resource('users', UserController::class);
@@ -31,6 +30,14 @@ require __DIR__.'/auth.php';
 Route::get('/', function () {
     return view('index');
 })->name('home');
+
+
+// Základné filtrovanie podľa pohlavia
+Route::get('/produkty/{pohlavie}/{kategoria?}', [ProductController::class, 'zobraz'])->name('produkty.zobraz');
+
+// Filtrovanie podľa pohlavia + kategórie
+// Route::get('/produkty/{pohlavie}/{kategoria}', [ProductController::class, 'index'])->name('produkty.filtruj');
+
 
 //profile
 Route::middleware(['auth'])->group(function () {
