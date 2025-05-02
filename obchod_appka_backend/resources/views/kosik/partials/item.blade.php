@@ -3,15 +3,19 @@
         <div class="col-12 col-sm-3">
             <img src=" {{ asset('storage/' . $item->image->first()->image_path) }}" alt="topanky"
                 class="w-100 rounded-4 mb-2" />
-            <div class="input-group flex-nowrap">
-                <button onclick="up(2)" class="btn btn-outline-dark">
-                    +
-                </button>
-                <span id="pocet_ks_2" class="text-center form-control"> {{ $item->pivot->pocet }}</span>
-                <button onclick="down(2)" class="btn btn-outline-dark">
-                    -
-                </button>
-            </div>
+            <form action="{{ route('kosik.update', $item->pivot->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="input-group flex-nowrap">
+                    <button type="submit" name="action" value="inc" class="btn btn-outline-dark">
+                        +
+                    </button>
+                    <span id="pocet_ks" class="text-center form-control"> {{ $item->pivot->pocet }}</span>
+                    <button type="submit" name="action" value="dec" class="btn btn-outline-dark">
+                        -
+                    </button>
+                </div>
+            </form>
         </div>
         <div class="col-6 col-sm-6 d-flex align-items-center">
             <div>

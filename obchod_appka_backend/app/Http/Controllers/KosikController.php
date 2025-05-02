@@ -19,11 +19,17 @@ class KosikController extends Controller
 
         $products = $user->products()->with('image')->get();
 
+        $cena = 0;
+
+        foreach ($products as $product) {
+            $cena += $product->cena * $product->pivot->pocet;
+        }
+
         return view(
             'kosik.index',
             [
                 'items' => $products,
-                'cena_spolu' => 99.99 + 99.99
+                'cena_spolu' => $cena,
             ]
         );
     }
@@ -45,9 +51,27 @@ class KosikController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id): RedirectResponse
     {
         //
+        $user = User::find(2);
+
+        $product = $user->products()->wherePivot('id', $id);
+        $pocet = $product->first()->pivot->pocet;
+
+        if ($request->action === 'inc') {
+            $pocet++;
+        } elseif ($request->action === 'dec') {
+            $pocet--;
+        }
+
+        if ($pocet < 1) {
+            $product->detach();
+        } else {
+            $product->first()->pivot->update(['pocet' => $pocet]);
+        }
+
+        return redirect('/kosik');
     }
 
     /**
