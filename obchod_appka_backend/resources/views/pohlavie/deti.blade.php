@@ -8,10 +8,13 @@
         <h2 class="text-format">Ponúkame najnovšie výbery produktov, prehliadaj v rámci širokého detského sortimentu</h2>
     </article>
 
-    <div class="pohlavie_obrazky-container">
-        <img src="{{ asset('storage/deti/nahlad/deti_nahlad.jpg') }}" alt="muz" class="moj-obrazok">
-        <img src="{{ asset('storage/deti/nahlad/deti_mensi_nahlad.jpg') }}" alt="topanky" class="obrazok-muz_topanky">
-    </div>
+    @if (is_null($kategoria))
+        <div class="pohlavie_obrazky-container">
+            <img src="{{ asset('storage/deti/nahlad/deti_nahlad.jpg') }}" alt="muz" class="moj-obrazok">
+            <img src="{{ asset('storage/deti/nahlad/deti_mensi_nahlad.jpg') }}" alt="topanky" class="obrazok-muz_topanky">
+        </div>
+    @endif
+    
     @include('partials.produkt-filtre')
     @if (isset($produkty) && $produkty->count())
         <div class="container mt-5">
@@ -41,7 +44,7 @@
             
         </div>
         <div class="d-flex justify-content-center mt-4">
-            {{ $produkty->links() }}
+            {{ $produkty->appends(request()->query())->links() }}
         </div>
     @else
         <p class="text-center">Žiadne produkty neboli nájdené pre tento výber.</p>

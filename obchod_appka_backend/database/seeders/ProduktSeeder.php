@@ -17,7 +17,7 @@ class ProduktSeeder extends Seeder
             ['nazov' => 'Nike'],
             ['nazov' => 'Adidas'],
             ['nazov' => 'Vans'],
-            ['nazov' => 'NewBalacne'],
+            ['nazov' => 'NewBalance'],
             ['nazov' => 'Converse'],
         ]);
 
@@ -53,7 +53,7 @@ class ProduktSeeder extends Seeder
                 'name' => 'Nike Air Force',
                 'popis' => 'Pohodlné tenisky na behanie',
                 'brand_id' => 1,
-                'color_id' => 1,
+                'color_id' => 2,
                 'type_id' => 1,
                 'gender_id' => 1,
                 'velkost_od' => 38,
@@ -92,7 +92,7 @@ class ProduktSeeder extends Seeder
                 'gender_id' => 1,
                 'velkost_od' => 38,
                 'velkost_do' => 43,
-                'cena' => 99.99,
+                'cena' => 89.99,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -134,7 +134,7 @@ class ProduktSeeder extends Seeder
             ],
             'Adidas Campus' => [
                 'muzi/tenisky/adidasCampus_black.jpg',
-                'muzi/tenisky/adidasCampus2_black.jpg',
+                'muzi/tenisky/adidasCampus_black2.jpg',
             ],
         ];
         

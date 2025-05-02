@@ -2,10 +2,11 @@
     <div class="shopHeader">SneakerHeaders</div>
 </a>
 
-<div class="search-container">
-    <input type="text" id="search-input" placeholder="Vyhľadaj produkt...">
+<form method="GET" action="{{ route('produkty.search') }}" class="search-container position-relative" autocomplete="off">
+    <input type="text" id="search-input" name="query" placeholder="Vyhľadaj produkt...">
     <button type="submit" id="search-btn">Hľadať</button>
-</div>
+    <ul id="autocomplete-results" class="autocomplete-list"></ul>
+</form>
 
 <div class="header-right">
     <button class="cart-btn" onclick="window.location.href='{{ route('kosik.index') }}'"><i

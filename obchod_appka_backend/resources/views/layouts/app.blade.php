@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/header_style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main_frame_style.css') }}">
+    <script src="{{ asset('js/ajax_search.js') }}" defer></script>
   </head>
   <body>
     <header>

@@ -37,8 +37,6 @@ Route::get('/', function () {
 // Základné filtrovanie podľa pohlavia
 Route::get('/produkty/{pohlavie}/{kategoria?}', [ProductController::class, 'zobraz'])->name('produkty.zobraz');
 
-// Filtrovanie podľa pohlavia + kategórie
-// Route::get('/produkty/{pohlavie}/{kategoria}', [ProductController::class, 'index'])->name('produkty.filtruj');
 
 
 //profile
@@ -55,3 +53,9 @@ Route::resource('kosik', KosikController::class)->only(['index', 'store', 'updat
 
 // ukaz nahlad jednotliveho produktu
 Route::get('/produkt/{id}', [ProductController::class, 'show'])->name('produkt.show');
+
+// search-bar routes
+Route::get('/produkty/search', [ProductController::class, 'search'])->name('produkty.search');
+Route::get('/produkty/autocomplete', [ProductController::class, 'autocomplete'])->name('produkty.autocomplete');
+
+Route::get('/produkty', [ProductController::class, 'index'])->name('produkty.index');
