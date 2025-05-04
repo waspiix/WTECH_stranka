@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produkt;
-use App\Models\Pohlavie;
+use App\Models\Gender;
 use App\Models\Druh;
 use App\Models\Product;
 use App\Models\Brand;
 use App\Models\Color;
+use App\Models\Type;
+use App\Models\Image;
+use App\Models\ProductImage;
 
 class ProductController extends Controller
 {
@@ -48,6 +51,19 @@ class ProductController extends Controller
     {
         $query = Product::query();
     
+        if ($pohlavie === 'admin' && auth()->check() && auth()->user()->admin) {
+            // odovzdava existujuce farby a znacky ked admin pridava v add
+            $colors = Color::select('nazov')->distinct()->orderBy('nazov')->get();
+            $brands = Brand::select('nazov')->distinct()->orderBy('nazov')->get();
+        
+            return view('admin.admin', [
+                'pohlavie' => $pohlavie,
+                'kategoria' => $kategoria,
+                'colors' => $colors,
+                'brands' => $brands,
+            ]);
+        }
+        
         if ($kategoria) {
             $query->whereHas('type', function ($q) use ($kategoria) {
                 $q->where('nazov', $kategoria);
@@ -57,6 +73,8 @@ class ProductController extends Controller
         $query->whereHas('gender', function ($q) use ($pohlavie) {
             $q->where('nazov', $pohlavie);
         });
+
+        
     
         $request = request();
     
@@ -127,6 +145,45 @@ class ProductController extends Controller
         ]);
     }
     
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nazov' => 'required|string|max:255',
+            'cena' => 'required|numeric|min:0',
+            'pohlavie' => 'required|string|in:muzi,zeny,deti',
+            'kategoria' => 'required|string',
+            'farba' => 'required|string',
+            'znacka' => 'required|string',
+            'velkost_od' => 'required|numeric',
+            'velkost_do' => 'required|numeric|gte:velkost_od',
+            'popis' => 'required|string',
+            'obrazky.*' => 'image|max:2048',
+        ]);
+
+        $produkt = Product::create([
+            'name' => $request->nazov,
+            'cena' => $request->cena,
+            'velkost_od' => $request->velkost_od,
+            'velkost_do' => $request->velkost_do,
+            'popis' => $request->popis,
+        ]);
+
+        $produkt->gender()->associate(Gender::where('nazov', $request->pohlavie)->first());
+        $produkt->type()->associate(Type::where('nazov', $request->kategoria)->first());
+        $produkt->color()->associate(Color::where('nazov', $request->farba)->first());
+        $produkt->brand()->associate(Brand::where('nazov', $request->znacka)->first());
+        $produkt->save();
+
+        if ($request->hasFile('obrazky')) {
+            foreach ($request->file('obrazky') as $obrazok) {
+                $path = $obrazok->store('produkty', 'public');
+                $produkt->image()->create(['image_path' => $path]);
+            }
+        }
+
+        return redirect()->route('produkty.zobraz', ['pohlavie' => 'admin', 'kategoria' => 'add'])
+            ->with('success', 'Produkt bol úspešne pridaný.');
+    }
     
     
 }

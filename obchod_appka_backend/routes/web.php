@@ -59,3 +59,6 @@ Route::get('/produkty/search', [ProductController::class, 'search'])->name('prod
 Route::get('/produkty/autocomplete', [ProductController::class, 'autocomplete'])->name('produkty.autocomplete');
 
 Route::get('/produkty', [ProductController::class, 'index'])->name('produkty.index');
+
+//admin vytvorenie produktu
+Route::post('/admin/produkt/store', [ProductController::class, 'store'])->name('admin.produkt.store');

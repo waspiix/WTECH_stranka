@@ -10,7 +10,7 @@
         <div class="col-md-5 mb-5 card p-3 shadow">
             <div class="card-body">
                 <h1 class="text_nadpis mb-3">Zákaznícky profil</h1>
-                <img src="{{ asset('pictures/profile_icon.png') }}" alt="profil" class="ikona mb-3" width="100">
+                <img src="{{ asset('storage/profile_icon.png') }}" alt="profil" class="ikona mb-3" width="100">
 
                 <form class="text-format" method="POST" action="{{ route('profile.update') }}">
                     @csrf
@@ -43,7 +43,7 @@
         <div class="col-md-5 mb-5 card p-3 shadow">
             <div class="card-body">
                 <h1 class="text_nadpis mb-3">Adresa doručenia</h1>
-                <img src="{{ asset('pictures/address_icon.png') }}" alt="profil" class="ikona mb-3" width="100">
+                <img src="{{ asset('storage/address_icon.png') }}" alt="profil" class="ikona mb-3" width="100">
 
                 <form class="text-format" method="POST" action="{{ route('profile.address.update') }}">
                     @csrf
