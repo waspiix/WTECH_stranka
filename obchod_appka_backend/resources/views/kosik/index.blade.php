@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('kosik.store') }}" method="POST">
-        @csrf
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
     @include('kosik.partials.nav')
     <div class="container bg-light p-3 rounded-5">
         <div class="bg-white p-2 rounded-4">

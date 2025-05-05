@@ -29,7 +29,7 @@ class KosikController extends Controller
             $counter = 0;
 
             $products = array_map(function ($kosik) use ($products_list, &$counter) {
-                $product = $products_list[$kosik['product_id']];
+                $product = clone $products_list[$kosik['product_id']];
 
                 $product->pivot = (object)[
                     'velkost' => $kosik['velkost'],
@@ -39,6 +39,8 @@ class KosikController extends Controller
 
                 return $product;
             }, $kosik);
+
+
 
             // foreach ($kosik as &$test) {
             //     $test['pivot'] = ['velkost' => $test['velkost']];
@@ -68,13 +70,13 @@ class KosikController extends Controller
     {
         //
 
-        $product_id = 2;
-        $pocet = 1;
-        $velkost = 40;
+        $product_id = $request->id;
+        $pocet = $request->pocet;
+        $velkost = $request->velkost;
 
 
         if ($user = Auth::user()) {
-            $product = Product::find(1);
+            $product = Product::find($product_id);
             $user->products()->attach($product->id, ['pocet' => $pocet, 'velkost' => $velkost]);
         } else {
             $key = $product_id . '_' . $velkost;
