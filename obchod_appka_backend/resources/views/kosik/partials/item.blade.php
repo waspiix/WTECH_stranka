@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="col-3 col-sm-2 d-flex align-items-center">
-            <p class="cena"><b>{{ $cena }}€</b></p>
+            <p class="cena"><b>{{ $cena * $item->pivot->pocet }}€</b></p>
         </div>
         <div class="col-3 col-sm-1 d-flex justify-content-end align-items-end align-items-sm-start">
             <form action="{{ route('kosik.destroy', $item->pivot->id) }}" method="POST">

@@ -49,7 +49,11 @@ Route::post('/profile/update', [UserController::class, 'update'])->name('profile
 Route::post('/profile/address/update', [UserController::class, 'updateAddress'])->name('profile.address.update');
 
 // kosik
-Route::resource('kosik', KosikController::class)->only(['index', 'store', 'update', 'destroy']);
+Route::resource('/kosik', KosikController::class)->only(['index', 'store', 'update', 'destroy']);
+
+Route::view('/objednavka/1', 'kosik.objednavka.adresa');
+Route::view('/objednavka/2', 'kosik.objednavka.platba');
+Route::view('/objednavka/3', 'kosik.objednavka.potvrdenie', ['id' => 45]);
 
 // ukaz nahlad jednotliveho produktu
 Route::get('/produkt/{id}', [ProductController::class, 'show'])->name('produkt.show');
