@@ -1,18 +1,18 @@
 <li class="list-group-item">
     <div class="row" id="item_2">
         <div class="col-12 col-sm-3">
-            <img src=" {{ asset('storage/' . $item->image->first()->image_path) }}" alt="topanky"
+            <img src=" {{ asset('storage/' . ($item->image->first()?->image_path ?? 'def.jpg')) }}" alt="topanky"
                 class="w-100 rounded-4 mb-2" />
             <form action="{{ route('kosik.update', $item->pivot->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="input-group flex-nowrap">
-                    <button type="submit" name="action" value="inc" class="btn btn-outline-dark">
-                        +
-                    </button>
-                    <span id="pocet_ks" class="text-center form-control"> {{ $item->pivot->pocet }}</span>
                     <button type="submit" name="action" value="dec" class="btn btn-outline-dark">
                         -
+                    </button>
+                    <span id="pocet_ks" class="text-center form-control"> {{ $item->pivot->pocet }}</span>
+                    <button type="submit" name="action" value="inc" class="btn btn-outline-dark">
+                        +
                     </button>
                 </div>
             </form>

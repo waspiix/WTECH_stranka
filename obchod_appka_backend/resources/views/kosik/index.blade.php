@@ -17,8 +17,13 @@
                 <p class="cena">Spolu: <b>{{ $cena_spolu }}€</b></p>
             </div>
             <div class="col p-3 text-end">
-                <button type="button" class="btn btn-primary"
-                    @if ($cena_spolu == 0) disabled @endif>Pokračovať</button>
+                @if ($cena_spolu == 0)
+                    <button type="button" class="btn btn-primary" disabled>
+                        Pokračovať</button>
+                @else
+                    <a href="{{ route('objednavka.index') }}" type="button" class="btn btn-primary">
+                        Pokračovať</a>
+                @endif
             </div>
         </div>
     </div>

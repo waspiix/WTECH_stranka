@@ -6,7 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KosikController;
-
+use App\Http\Controllers\ObjednavkaController;
 
 // user controller
 Route::resource('users', UserController::class);
@@ -51,9 +51,10 @@ Route::post('/profile/address/update', [UserController::class, 'updateAddress'])
 // kosik
 Route::resource('/kosik', KosikController::class)->only(['index', 'store', 'update', 'destroy']);
 
-Route::view('/objednavka/1', 'kosik.objednavka.adresa');
-Route::view('/objednavka/2', 'kosik.objednavka.platba');
-Route::view('/objednavka/3', 'kosik.objednavka.potvrdenie', ['id' => 45]);
+Route::resource('/objednavka', ObjednavkaController::class);
+// Route::get('/objednavka', [ObjednavkaController::class, 'index'])->name('objednavka.index');
+
+
 
 // ukaz nahlad jednotliveho produktu
 Route::get('/produkt/{id}', [ProductController::class, 'show'])->name('produkt.show');

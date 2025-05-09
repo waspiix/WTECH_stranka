@@ -65,7 +65,7 @@ class KosikService
         }
     }
 
-    function updateProduct($id, $action)
+    public function updateProduct($id, $action)
     {
         if ($user = Auth::user()) {
 
@@ -106,7 +106,7 @@ class KosikService
             session(['kosik' => $kosik]);
         }
     }
-    function removeProduct($id)
+    public function removeProduct($id)
     {
         if ($user = Auth::user()) {
             $user->products()->wherePivot('id', $id)->detach();

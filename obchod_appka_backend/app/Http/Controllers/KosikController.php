@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Services\KosikService;
-use App\Models\Product;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class KosikController extends Controller
 {
     public function __construct(protected KosikService $kosik) {}
-
 
     /**
      * Display a listing of the resource.

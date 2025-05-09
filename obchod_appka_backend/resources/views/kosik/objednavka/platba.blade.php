@@ -6,29 +6,16 @@
         <div class="bg-white p-2 rounded-4">
             <h2>Súhrn:</h2>
             <ul class="list-group">
-                <li class="list-group-item">
-                    <div class="row align-items-center text-center">
-                        <div class="col-12 col-sm-3">
-                            <img src="../pictures/muzi/Tenisky/nike_airforce.jpg" alt="nike airforce" class="w-75 rounded-2" />
-                        </div>
-                        <div class="col-12 col-sm-3">
-                            <div class="produkt_suhrn">Nike Air Force</div>
-                        </div>
-                        <div class="col-6 col-sm-3">
-                            <div class="produkt_suhrn">42</div>
-                        </div>
-                        <div class="col-6 col-sm-3">
-                            <div class="produkt_suhrn">99,00€</div>
-                        </div>
-                    </div>
-                </li>
+                @foreach ($items as $item)
+                    @include('kosik.objednavka.partial.item', $item)
+                @endforeach
                 <li class="list-group-item bg-light">
                     <div class="row p-2">
                         <div class="col">
                             <div class="cena">Spolu:</div>
                         </div>
                         <div class="col text-end">
-                            <div class="cena"><b>198 €</b></div>
+                            <div class="cena"><b>{{ $cena_spolu }}€</b></div>
                         </div>
                     </div>
                 </li>
@@ -40,16 +27,21 @@
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col">Fero</div>
-                                <div class="col">Mrkvicka</div>
+                                <div class="col">{{ $objednavka->meno }}</div>
+                                <div class="col">{{ $objednavka->priezvisko }}</div>
                             </div>
                         </li>
-                        <li class="list-group-item">Dlha ulica 168/2</li>
+                        <li class="list-group-item">{{ $objednavka->email }}</li>
+                        <li class="list-group-item">{{ $objednavka->telefon }}</li>
+                        <li class="list-group-item">{{ $objednavka->ulica }}</li>
                         <li class="list-group-item">
                             <div class="row">
-                                <div class="col">Velmi dlhe mesto</div>
-                                <div class="col">13456</div>
+                                <div class="col">{{ $objednavka->mesto }}</div>
+                                <div class="col">{{ $objednavka->PSC }}</div>
                             </div>
+                        <li class="list-group-item">{{ $objednavka->krajna }}</li>
+                        </li>
+                        <li class="list-group-item">{{ 'Druh doručenia: ' . $objednavka->dorucenie }}</li>
                         </li>
                     </ul>
                 </address>
