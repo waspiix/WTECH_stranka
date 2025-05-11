@@ -150,6 +150,20 @@ class ProduktSeeder extends Seeder
                 }
             }
         }
-        Product::factory(10)->create();
+       $newProducts = Product::factory(20)->create();
+
+        $vansImages = [
+            'muzi/tenisky/vans.jpg',
+            'muzi/tenisky/vans2.jpg',
+        ];
+
+        foreach ($newProducts as $product) {
+            foreach ($vansImages as $imagePath) {
+                Image::create([
+                    'product_id' => $product->id,
+                    'image_path' => $imagePath,
+                ]);
+            }
+        }    
     }
 }
