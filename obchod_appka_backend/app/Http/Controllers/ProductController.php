@@ -12,6 +12,7 @@ use App\Models\Color;
 use App\Models\Type;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -153,6 +154,25 @@ class ProductController extends Controller
             'brands' => $brands,
             'colors' => $colors,
         ]);
+    }
+
+    public function delete($id)
+    {
+        abort_unless(Auth::user()->admin, 403);
+
+        $images = Product::findOrFail($id)->image()->get();
+
+        foreach ($images as $image) {
+            $path = storage_path('app/public/' . $image->image_path);
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+        }
+
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect('/produkty/admin/admin-edit');
     }
 
     public function update($id, Request $request)

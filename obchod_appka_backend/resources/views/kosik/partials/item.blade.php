@@ -20,7 +20,6 @@
         <div class="col-6 col-sm-6 d-flex align-items-center">
             <div>
                 <p class="produkt_nazov">{{ $name }}</p>
-                {{-- <label for="velkost_2" class="form-label">Velkosť</label> --}}
                 <p>{{ $item->pivot->velkost }}</p>
             </div>
         </div>

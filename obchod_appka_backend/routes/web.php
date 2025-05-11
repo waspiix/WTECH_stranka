@@ -72,3 +72,4 @@ Route::post('/admin/produkt/store', [ProductController::class, 'store'])->name('
 
 Route::get('/admin/produkt/{id}', [ProductController::class, 'edit'])->middleware(['auth'])->name('admin.produkt.edit');
 Route::post('/admin/produkt/{id}', [ProductController::class, 'update'])->middleware(['auth'])->name('admin.produkt.update');
+Route::delete('/admin/produkt/{id}', [ProductController::class, 'delete'])->middleware(['auth'])->name('admin.produkt.delete');

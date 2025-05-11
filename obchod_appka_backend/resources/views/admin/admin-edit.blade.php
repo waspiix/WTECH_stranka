@@ -23,7 +23,7 @@
                     <td>{{ $product->velkost_od . ' - ' . $product->velkost_do }}</td>
                     <td>
                         <div class="btn-group">
-                            <form action="" method="POST">
+                            <form action="{{ route('admin.produkt.delete', $product->id) }}" method="POST">
                                 <a href="{{ route('admin.produkt.edit', $product->id) }}"
                                     class="btn btn-primary">Edit</a>
                                 @csrf
