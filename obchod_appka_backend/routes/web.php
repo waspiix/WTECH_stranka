@@ -51,8 +51,10 @@ Route::post('/profile/address/update', [UserController::class, 'updateAddress'])
 // kosik
 Route::resource('/kosik', KosikController::class)->only(['index', 'store', 'update', 'destroy']);
 
-Route::resource('/objednavka', ObjednavkaController::class);
-// Route::get('/objednavka', [ObjednavkaController::class, 'index'])->name('objednavka.index');
+// objednavka
+Route::get('/objednavka', [ObjednavkaController::class, 'index'])->name('objednavka.index');
+Route::post('/objednavka', [ObjednavkaController::class, 'store'])->name('objednavka.store');
+Route::post('/objednavka/accept', [ObjednavkaController::class, 'accept'])->name('objednavka.accept');
 
 
 

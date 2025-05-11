@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('kosik.partials.nav')
+    @include('kosik.partials.nav', ['status' => 2])
     <form class="needs-validation" id="data" action="{{ route('objednavka.store') }}" method="POST" novalidate>
         @csrf
         <div class="container bg-light p-3 rounded-5">

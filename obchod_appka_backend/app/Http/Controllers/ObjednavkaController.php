@@ -11,28 +11,21 @@ class ObjednavkaController extends Controller
 {
     public function __construct(protected ObjednavkaService $objednavka, protected KosikService $kosik) {}
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-
+        // ak je pouzivatel prihlaseny formular sa vyplni jeho udajmi
         $user = Auth::user();
 
         if ($user == false) {
+            // ak nieje prihlaseni ale uz zacal objednavku
             $user = (object) session()->get('objednavka', []);
         }
 
-
         return view('kosik.objednavka.adresa', ['user' => $user]);
-        // view('kosik.objednavka.platba');
-        // view('kosik.objednavka.potvrdenie', ['id' => 45]);
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -54,5 +47,19 @@ class ObjednavkaController extends Controller
             'items' => $this->kosik->getProducts(),
             'cena_spolu' => $this->kosik->getCena($this->kosik->getProducts())
         ]);
+    }
+
+    public function accept(Request $request)
+    {
+        $request->validate([
+            'platba' => 'required|string',
+        ]);
+
+        $id = $this->objednavka->saveOrder($request->platba);
+
+        return view(
+            'kosik.objednavka.potvrdenie',
+            ['id' => $id],
+        );
     }
 }

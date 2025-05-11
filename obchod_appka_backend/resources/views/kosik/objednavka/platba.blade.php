@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('kosik.partials.nav')
+    @include('kosik.partials.nav', ['status' => 3])
     <div class="container bg-light p-3 rounded-5">
         <div class="bg-white p-2 rounded-4">
             <h2>Súhrn:</h2>
@@ -21,7 +21,6 @@
                 </li>
             </ul>
             <div class="my-3">
-                <!-- toto upravit este -->
                 <h2>Dodacie údaje:</h2>
                 <address>
                     <ul class="list-group list-group-flush">
@@ -48,28 +47,31 @@
             </div>
 
             <h2>Spôsob platby:</h2>
-            <div class="w-100 btn-group" role="group">
-                <input id="hotovost_l" type="radio" class="btn-check" name="sposob_platby" />
-                <label class="btn btn-outline-primary" for="hotovost_l">
-                    <img src="{{ asset('pictures/kosik/euro.svg') }}" class="bg-white rounded-2 p-1" height="50"
-                        alt="" />
-                    <br />
-                    Hotovosť
-                </label>
-                <input id="karta_l" type="radio" class="btn-check" name="sposob_platby" />
-                <label class="btn btn-outline-primary" for="karta_l">
-                    <img src="{{ asset('pictures/kosik/karta.svg') }}" class="bg-white rounded-2 px-2" height="50"
-                        alt="" />
-                    <br />
-                    Karta</label>
-            </div>
+            <form id="accept" action="{{ route('objednavka.accept') }}" method="POST">
+                @csrf
+                <div class="w-100 btn-group" role="group">
+                    <input id="hotovost_l" type="radio" class="btn-check" name="platba" value="hotovost" checked />
+                    <label class="btn btn-outline-primary" for="hotovost_l">
+                        <img src="{{ asset('pictures/kosik/euro.svg') }}" class="bg-white rounded-2 p-1" height="50"
+                            alt="hotovost" />
+                        <br />
+                        Hotovosť
+                    </label>
+                    <input id="karta_l" type="radio" class="btn-check" name="platba" value="karta" />
+                    <label class="btn btn-outline-primary" for="karta_l">
+                        <img src="{{ asset('pictures/kosik/karta.svg') }}" class="bg-white rounded-2 px-2" height="50"
+                            alt="karta" />
+                        <br />
+                        Karta</label>
+                </div>
+            </form>
         </div>
     </div>
     <div class="container px-4">
         <div class="row gx-5 text-start">
             <div class="col">
                 <div class="p-3 text-end">
-                    <button type="button" class="btn btn-primary">Pokračovať</button>
+                    <button type="submit" form="accept" class="btn btn-primary">Pokračovať</button>
                 </div>
             </div>
         </div>

@@ -39,6 +39,34 @@ class KosikService
         return $products;
     }
 
+    public function getProductsNoImage()
+    {
+        $products = [];
+
+        if ($user = Auth::user()) {
+            $products = $user->products()->get();
+        } else {
+            $kosik = session()->get('kosik', []);
+
+            $ids = array_column($kosik, 'product_id');
+
+            $products_list = Product::whereIn('id', $ids)->get()->keyBy('id');
+
+            $products = array_map(function ($kosik) use ($products_list, &$counter) {
+                $product = clone $products_list[$kosik['product_id']];
+
+                $product->pivot = (object)[
+                    'velkost' => $kosik['velkost'],
+                    'pocet' => $kosik['pocet'],
+                ];
+
+                return $product;
+            }, $kosik);
+        }
+
+        return $products;
+    }
+
     public function getCena($products)
     {
         $cena = 0;
@@ -106,6 +134,7 @@ class KosikService
             session(['kosik' => $kosik]);
         }
     }
+
     public function removeProduct($id)
     {
         if ($user = Auth::user()) {

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('kosik.partials.nav')
+    @include('kosik.partials.nav', ['status' => 4])
     <div class="container bg-light p-3 rounded-5">
         <div class="bg-white p-2 rounded-4">
             <div class="row align-items-center">
@@ -21,9 +21,9 @@
         <div class="row gx-5 text-start">
             <div class="col">
                 <div class="p-3 text-center">
-                    <button type="button" class="btn btn-primary">
+                    <a href="{{ route('home') }}" type="button" class="btn btn-primary">
                         Hlavná stránka
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

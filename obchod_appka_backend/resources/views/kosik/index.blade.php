@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('kosik.partials.nav')
+    @include('kosik.partials.nav', ['status' => 1])
     <div class="container bg-light p-3 rounded-5">
         <div class="bg-white p-2 rounded-4">
             <ul class="list-group list-group-flush">

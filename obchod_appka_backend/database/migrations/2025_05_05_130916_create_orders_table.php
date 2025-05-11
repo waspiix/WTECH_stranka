@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('krajna');
             $table->string('dorucenie');
             $table->string('platba');
+            $table->float('cena', 6, 2);
             $table->boolean('zaplatene')->default(false);
             $table->timestamps();
 
