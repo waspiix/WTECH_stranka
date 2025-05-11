@@ -21,7 +21,7 @@
                     <button type="button" class="btn btn-primary" disabled>
                         Pokračovať</button>
                 @else
-                    <a href="{{ route('objednavka.index') }}" type="button" class="btn btn-primary">
+                    <a href="{{ route('objednavka.index') }}" class="btn btn-primary">
                         Pokračovať</a>
                 @endif
             </div>

@@ -69,3 +69,6 @@ Route::get('/produkty', [ProductController::class, 'index'])->name('produkty.ind
 
 //admin vytvorenie produktu
 Route::post('/admin/produkt/store', [ProductController::class, 'store'])->name('admin.produkt.store');
+
+Route::get('/admin/produkt/{id}', [ProductController::class, 'edit'])->middleware(['auth'])->name('admin.produkt.edit');
+Route::post('/admin/produkt/{id}', [ProductController::class, 'update'])->middleware(['auth'])->name('admin.produkt.update');

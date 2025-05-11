@@ -14,7 +14,7 @@
             <img src="{{ asset('storage/deti/nahlad/deti_mensi_nahlad.jpg') }}" alt="topanky" class="obrazok-muz_topanky">
         </div>
     @endif
-    
+
     @include('partials.produkt-filtre')
     @if (isset($produkty) && $produkty->count())
         <div class="container mt-5">
@@ -33,15 +33,17 @@
                                     class="card-img-top" alt="{{ $produkt->nazov }}">
                             @endif
                             <div class="card-body d-flex flex-column">
-                                <p class="card-title">{{ $produkt->name}}<p>
+                                <p class="card-title">{{ $produkt->name }}
+                                <p>
                                 <p class="card-text">{{ $produkt->cena }} €</p>
-                                <a href="#" class="btn btn-primary mt-auto">Detail</a>
+                                <a href="{{ route('produkt.show', $produkt->id) }}"
+                                    class="btn btn-primary mt-auto">Detail</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-            
+
         </div>
         <div class="d-flex justify-content-center mt-4">
             {{ $produkty->appends(request()->query())->links() }}

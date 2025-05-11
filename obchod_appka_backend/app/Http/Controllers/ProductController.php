@@ -11,7 +11,7 @@ use App\Models\Brand;
 use App\Models\Color;
 use App\Models\Type;
 use App\Models\Image;
-use App\Models\ProductImage;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -37,11 +37,11 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
-    
+
         $produkty = Product::where('name', 'like', "%$query%")
             ->with('image')
             ->get();
-    
+
         return view('produkt.produkt', compact('produkt'));
     }
 
@@ -50,48 +50,58 @@ class ProductController extends Controller
     public function zobraz($pohlavie, $kategoria = null)
     {
         $query = Product::query();
-    
-        if ($pohlavie === 'admin' && auth()->check() && auth()->user()->admin) {
+
+        if ($pohlavie === 'admin' && Auth::check() && Auth::user()->admin) {
             // odovzdava existujuce farby a znacky ked admin pridava v add
-            $colors = Color::select('nazov')->distinct()->orderBy('nazov')->get();
+            $products = [];
+            $genders = Gender::select('nazov')->distinct()->orderBy('nazov')->get();
+            $types = Type::select('nazov')->distinct()->orderBy('nazov')->get();
             $brands = Brand::select('nazov')->distinct()->orderBy('nazov')->get();
-        
+            $colors = Color::select('nazov')->distinct()->orderBy('nazov')->get();
+
+            if ($kategoria === "admin-edit") {
+                $products = Product::with(['brand', 'type', 'gender'])->get();
+            }
+
             return view('admin.admin', [
                 'pohlavie' => $pohlavie,
                 'kategoria' => $kategoria,
-                'colors' => $colors,
+                'genders' => $genders,
+                'types' => $types,
                 'brands' => $brands,
+                'colors' => $colors,
+                'products' => $products,
             ]);
         }
-        
+
         if ($kategoria) {
             $query->whereHas('type', function ($q) use ($kategoria) {
                 $q->where('nazov', $kategoria);
             });
         }
-    
+
         $query->whereHas('gender', function ($q) use ($pohlavie) {
             $q->where('nazov', $pohlavie);
         });
 
-        
-    
+
+
         $request = request();
-    
+
         // Filter: Značky (viacnásobný výber)
         if ($request->filled('brands')) {
             $query->whereHas('brand', function ($q) use ($request) {
                 $q->whereIn('nazov', $request->input('brands'));
             });
         }
-    
+
         // Filter: Farby (viacnásobný výber)
         if ($request->filled('colors')) {
             $query->whereHas('color', function ($q) use ($request) {
                 $q->whereIn('nazov', $request->input('colors'));
             });
         }
-    
+
         // Filter: Veľkosti (viacnásobný výber)
         // Filter: Veľkosti (viacnásobný výber)
         if ($request->filled('sizes')) {
@@ -104,16 +114,16 @@ class ProductController extends Controller
                 }
             });
         }
-    
+
         // Filter: Cena od / do
         if ($request->filled('price_from')) {
             $query->where('cena', '>=', $request->input('price_from'));
         }
-    
+
         if ($request->filled('price_to')) {
             $query->where('cena', '<=', $request->input('price_to'));
         }
-    
+
         // Zoradenie podľa ceny
         if ($request->filled('sort')) {
             $sort = $request->input('sort');
@@ -123,19 +133,19 @@ class ProductController extends Controller
                 $query->orderBy('cena', 'desc');
             }
         }
-    
+
         $produkty = $query->paginate(8);
-    
+
         // Pre dropdowny s filtrami
         $brands = Brand::select('nazov')->distinct()->orderBy('nazov')->get();
         $colors = Color::select('nazov')->distinct()->orderBy('nazov')->get();
-    
+
         $viewPath = 'pohlavie.' . $pohlavie;
-    
+
         if (!view()->exists($viewPath)) {
             abort(404, 'Pohlavie view neexistuje');
         }
-    
+
         return view($viewPath, [
             'produkty' => $produkty,
             'pohlavie' => $pohlavie,
@@ -144,7 +154,60 @@ class ProductController extends Controller
             'colors' => $colors,
         ]);
     }
-    
+
+    public function update($id, Request $request)
+    {
+        abort_unless(Auth::user()->admin, 403);
+
+        $product = Product::findOrFail($id);
+
+        $request->validate([
+            'nazov' => 'required|string|max:255',
+            'cena' => 'required|numeric|min:0',
+            'pohlavie' => 'required',
+            'kategoria' => 'required',
+            'farba' => 'required',
+            'znacka' => 'required',
+            'velkost_od' => 'required|numeric',
+            'velkost_do' => 'required|numeric|gte:velkost_od',
+            'popis' => 'required|string',
+        ]);
+
+        $product->update([
+            'name' => $request->nazov,
+            'cena' => $request->cena,
+            'gender_id' => $request->pohlavie,
+            'type_id' => $request->kategoria,
+            'brand_id' => $request->znacka,
+            'color_id' => $request->farba,
+            'popis' => $request->popis,
+            'velkost_od' => $request->velkost_od,
+            'velkost_do' => $request->velkost_do,
+        ]);
+
+        return redirect('/produkty/admin/admin-edit');
+    }
+
+    public function edit($id)
+    {
+        abort_unless(Auth::user()->admin, 403);
+
+        $product = Product::find($id);
+        $genders = Gender::all();
+        $types = Type::all();;
+        $brands = Brand::all();;
+        $colors = Color::all();;
+
+
+        return view('admin.product-edit', [
+            'genders' => $genders,
+            'types' => $types,
+            'brands' => $brands,
+            'colors' => $colors,
+            'product' => $product,
+        ]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -184,6 +247,4 @@ class ProductController extends Controller
         return redirect()->route('produkty.zobraz', ['pohlavie' => 'admin', 'kategoria' => 'add'])
             ->with('success', 'Produkt bol úspešne pridaný.');
     }
-    
-    
 }

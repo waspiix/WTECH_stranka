@@ -8,26 +8,25 @@
     </div>
 
     <div>
-        <input type="number" step="0.01" name="cena" class="input-style-admin-cena" placeholder="Cena (€)" required>
+        <input type="number" step="0.01" name="cena" class="input-style-admin-cena" placeholder="Cena (€)"
+            required>
     </div>
 
     <div class="mt-3 d-flex flex-wrap gap-3">
         <!-- Pohlavie -->
         <select name="pohlavie" class="form-select w-auto" required>
             <option value="" disabled selected>Vyberte pohlavie</option>
-            <option value="muzi">Muži</option>
-            <option value="zeny">Ženy</option>
-            <option value="deti">Deti</option>
+            @foreach ($genders as $gender)
+                <option value="{{ $gender->nazov }}">{{ ucfirst($gender->nazov) }}</option>
+            @endforeach
         </select>
 
         <!-- Kategória -->
         <select name="kategoria" class="form-select w-auto" required>
             <option value="" disabled selected>Vyberte kategóriu</option>
-            <option value="tenisky">Tenisky</option>
-            <option value="formalna">Formálna</option>
-            <option value="outdoor">Outdoor</option>
-            <option value="cizmy">Čižmy</option>
-            <option value="letna">Letná</option>
+            @foreach ($types as $type)
+                <option value="{{ $type->nazov }}">{{ ucfirst($type->nazov) }}</option>
+            @endforeach
         </select>
 
         <select name="znacka" class="form-select w-auto" required>
