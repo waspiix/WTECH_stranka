@@ -70,6 +70,11 @@ Route::get('/produkty', [ProductController::class, 'index'])->name('produkty.ind
 //admin vytvorenie produktu
 Route::post('/admin/produkt/store', [ProductController::class, 'store'])->name('admin.produkt.store');
 
+//admin uprava, zmazanie, odstranenie produktu
 Route::get('/admin/produkt/{id}', [ProductController::class, 'edit'])->middleware(['auth'])->name('admin.produkt.edit');
 Route::post('/admin/produkt/{id}', [ProductController::class, 'update'])->middleware(['auth'])->name('admin.produkt.update');
 Route::delete('/admin/produkt/{id}', [ProductController::class, 'delete'])->middleware(['auth'])->name('admin.produkt.delete');
+
+//admin pridanie a odstranenie obrazkov
+Route::delete('/admin/image/{id}', [ProductController::class, 'deleteImage'])->middleware(['auth'])->name('admin.image.delete');
+Route::post('/admin/image/{id}', [ProductController::class, 'storeImage'])->middleware(['auth'])->name('admin.image.store');

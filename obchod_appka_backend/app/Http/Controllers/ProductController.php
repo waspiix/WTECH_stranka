@@ -156,6 +156,42 @@ class ProductController extends Controller
         ]);
     }
 
+    public function storeImage($id, Request $request)
+    {
+
+        $request->validate([
+            'obrazky.*' => 'image|max:2048',
+        ]);
+
+
+        $produkt = Product::findOrFail($id);
+
+        if ($request->hasFile('obrazky')) {
+            foreach ($request->file('obrazky') as $obrazok) {
+                $path = $obrazok->store('produkty', 'public');
+                $produkt->image()->create(['image_path' => $path]);
+            }
+        }
+
+        return redirect()->back();
+    }
+
+    public function deleteImage($id)
+    {
+        $image =  Image::find($id);
+
+        $product_id = $image->product_id;
+
+        $path = storage_path('app/public/' . $image->image_path);
+        if (File::exists($path)) {
+            File::delete($path);
+        }
+
+        $image->delete();
+
+        return redirect('/admin/produkt/' . $product_id);
+    }
+
     public function delete($id)
     {
         abort_unless(Auth::user()->admin, 403);
@@ -172,7 +208,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        return redirect('/produkty/admin/admin-edit');
+        return redirect()->back();
     }
 
     public function update($id, Request $request)
@@ -205,7 +241,7 @@ class ProductController extends Controller
             'velkost_do' => $request->velkost_do,
         ]);
 
-        return redirect('/produkty/admin/admin-edit');
+        return redirect()->back();
     }
 
     public function edit($id)
@@ -213,6 +249,8 @@ class ProductController extends Controller
         abort_unless(Auth::user()->admin, 403);
 
         $product = Product::find($id);
+        $images = $product->image()->get();
+
         $genders = Gender::all();
         $types = Type::all();;
         $brands = Brand::all();;
@@ -225,6 +263,7 @@ class ProductController extends Controller
             'brands' => $brands,
             'colors' => $colors,
             'product' => $product,
+            'images' => $images,
         ]);
     }
 

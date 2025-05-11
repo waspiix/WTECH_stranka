@@ -74,14 +74,35 @@
             </div>
 
             <!-- Obrázky -->
-            {{-- <div class="container mt-4 mb-5">
-                <h5 class="mb-3">Nahraj 2 obrázky</h5>
-                <input type="file" name="obrazky[]" class="form-control" multiple accept="image/*" required>
-            </div> --}}
-
             <div class="text-center">
                 <button type="submit" class="btn btn-success">Aktualizovať</button>
             </div>
         </form>
+
+        <form action="{{ route('admin.image.store', $product->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="container mt-4 mb-5">
+                <h5 class="mb-3">Nahraj obrázky</h5>
+                <input type="file" name="obrazky[]" class="form-control" multiple accept="image/*" required>
+                <button type="submit" class="btn btn-success">Nahraj</button>
+            </div>
+        </form>
+
+        <div class="container row">
+            @foreach ($images as $image)
+                <div class="card col-6">
+                    <img src="{{ asset('storage/' . $image->image_path) }}" alt="">
+                    <div class="card-body">
+                        <form action="{{ route('admin.image.delete', $image->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete?')">
+                                X
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 @endsection
